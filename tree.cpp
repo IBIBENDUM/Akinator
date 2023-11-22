@@ -26,8 +26,15 @@ Tree_node tree_get_root(const Tree tree)
     return tree->root;
 }
 
+size_t tree_get_size(const Tree tree)
+{
+    LOG_TRACE("Tree size obtained!");
+    return tree->size;
+}
+
 Tree_node tree_get_parent_node(const Tree_node node)
 {
+    LOG_TRACE("Parent node obtained!");
     return node->parent;
 }
 
@@ -98,6 +105,7 @@ tree_error tree_insert(const Tree tree, Tree_node* node, const tree_elem_t value
         {
             err = tree_node_init(node, NULL, value);
             tree->size++;
+            tree->root = *node;
             return err;
         }
         else

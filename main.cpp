@@ -1,14 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "tree.h"
-#include "tree_logs.h"
 #include "Libs/logs.h"
+
+#include "tree.h"
+#include "tree_text_logs.h"
+#include "tree_graphic_logs.h"
 
 int main()
 {
+    set_log_level(LOG_LVL_DEBUG);
+
     Tree tree = tree_init();
     Tree_node root = tree_get_root(tree);
+
+    tree_open_log_file();
 
     tree_insert(tree, &root, 5);
     tree_insert(tree, &root, 4);
@@ -38,6 +44,9 @@ int main()
     current_node = tree_get_child_node(current_node, LEFT);
     tree_insert(tree, &current_node, 23);
     tree_insert(tree, &current_node, 24);
+
+    tree_log(tree, "sdadas");
+    tree_close_log_file();
 
     tree_pre_order_traversal(root, &tree_text_dump);
     return 0;

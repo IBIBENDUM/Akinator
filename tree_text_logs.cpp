@@ -3,17 +3,17 @@
 #include <fcntl.h>
 
 #include "tree.h"
-#include "tree_logs.h"
+#include "tree_text_logs.h"
 #include "tree_config.h"
 
 FILE* TEXT_DUMP_FILE = stderr;
 
+// BAH: Move to other file (textlib.h mb?)
 static void print_n_wchar(FILE* file_ptr, const size_t amount, const wchar_t sym)
 {
     for (size_t i = 0; i < amount; i++)
         putwc(sym, file_ptr);
 }
-
 
 static bool tree_check_for_neighbour(Tree_node node)
 {

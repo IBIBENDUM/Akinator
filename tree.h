@@ -43,6 +43,8 @@ tree_error tree_destruct(Tree tree);
 
 Tree_node tree_get_root(const Tree tree);
 
+size_t tree_get_size(const Tree tree);
+
 Tree_node tree_get_parent_node(const Tree_node node);
 
 Tree_node tree_get_child_node(const Tree_node node, const Tree_child child);
