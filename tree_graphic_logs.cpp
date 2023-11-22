@@ -34,21 +34,21 @@ static void write_node_info(FILE* file_ptr, const Tree_node node)
     assert(file_ptr);
     assert(node);
 
-    print("\"{PTR: 0x%llX |", node);
+    print("\"{PTR: 0x%llX |", (long long unsigned) node);
 
-    tree_elem_t value = NULL;
+    tree_elem_t value = 0;
     tree_get_node_value(node, &value);
     print("VALUE: " TREE_ELEM_FORMAT " | ", value);
 
     Tree_node left_child = tree_get_child_node(node, LEFT);
     if (left_child)
-        print("{<left> LEFT: 0x%llX |", left_child);
+        print("{<left> LEFT: 0x%llX |", (long long unsigned) left_child);
     else
         print("{<left> LEFT: NULL |");
 
     Tree_node right_child = tree_get_child_node(node, RIGHT);
     if (right_child)
-        print("<right> RIGHT: 0x%llX}}\"];\n", right_child);
+        print("<right> RIGHT: 0x%llX}}\"];\n", (long long unsigned) right_child);
     else
         print("<right> RIGHT: NULL}}\"];\n");
 }
@@ -61,15 +61,21 @@ static void write_node_settings(FILE* file_ptr, const Tree_node node)
     Tree_node left_child  = tree_get_child_node(node, LEFT);
     Tree_node right_child = tree_get_child_node(node, RIGHT);
 
-    int fill_color = 0;
+    int fill_color    = 0;
+    int outline_color = 0;
     if (left_child && right_child)
-        fill_color = QST_FILL_COLOR;
+    {
+        fill_color    = QST_FILL_COLOR;
+        outline_color = QST_OUTLINE_COLOR;
+    }
     else
-        fill_color = OBJ_FILL_COLOR;
-
+    {
+        fill_color    = OBJ_FILL_COLOR;
+        outline_color = OBJ_OUTLINE_COLOR;
+    }
     print("[shape = Mrecord, style = filled, fillcolor = \"#"\
           COLOR_FORMAT "\", color = \"#" COLOR_FORMAT "\", label = ",
-          fill_color, OUTLINE_COLOR);
+          fill_color, outline_color);
 }
 
 static void write_nodes(FILE* file_ptr, const Tree_node node)
@@ -79,7 +85,7 @@ static void write_nodes(FILE* file_ptr, const Tree_node node)
     if (!node)
         return;
 
-    print("\"%llX\" ", node);
+    print("\"%llX\" ", (long long unsigned) node);
     write_node_settings(file_ptr, node);
     write_node_info(file_ptr, node);
 
@@ -100,7 +106,7 @@ static void link_node_with_child(FILE* file_ptr, const Tree_node node, const Tre
     }
     else
     {
-        print("\"%llX\":<left> -> \"%llX\"", child_node, child_parent_node);
+        print("\"%llX\":<left> -> \"%llX\"", (long long unsigned) child_node, (long long unsigned) child_parent_node);
         print(NODE_SETTINGS_FORMAT, NEXT_COLOR, 1);
     }
 }
@@ -116,13 +122,13 @@ static void link_nodes(FILE* file_ptr, const Tree_node node)
 
     if (left_child)
     {
-        print("\"%llX\":<left> -> \"%llX\"", node, left_child);
+        print("\"%llX\":<left> -> \"%llX\"", (long long unsigned) node, (long long unsigned) left_child);
         print(NODE_SETTINGS_FORMAT, NEXT_COLOR, 1);
         link_node_with_child(file_ptr, node, left_child);
     }
     if (right_child)
     {
-        print("\"%llX\":<right> -> \"%llX\"", node, right_child);
+        print("\"%llX\":<right> -> \"%llX\"", (long long unsigned) node, (long long unsigned) right_child);
         print(NODE_SETTINGS_FORMAT, NEXT_COLOR, 1);
         link_node_with_child(file_ptr, node, right_child);
     }
@@ -137,8 +143,8 @@ static void write_head_info(FILE* file_ptr, const Tree tree)
     assert(file_ptr);
     assert(tree);
 
-    print("\"{ROOT_PTR: 0x%llX | SIZE: %lu}\"]",
-          tree_get_root(tree), tree_get_size(tree));
+    print("\"{ROOT_PTR: 0x%llX | SIZE: %llu}\"]",
+          (long long unsigned)tree_get_root(tree), tree_get_size(tree));
 }
 
 static void write_header_info(FILE* file_ptr, const Tree tree)
@@ -149,7 +155,7 @@ static void write_header_info(FILE* file_ptr, const Tree tree)
     print("HEADER");
     print("[shape = Mrecord, style = filled, fillcolor = \"#"\
           COLOR_FORMAT "\", color = \"#" COLOR_FORMAT "\", label = ",
-          OBJ_FILL_COLOR, OUTLINE_COLOR);
+          OBJ_FILL_COLOR, OBJ_OUTLINE_COLOR);
     write_head_info(file_ptr, tree);
     print("\n");
 }
@@ -294,7 +300,7 @@ static void add_image_to_log()
     char svg_file_path[GRAPH_MAX_PATH_LEN] = "";
     sprintf(svg_file_path, "%s/%s_%02llu.svg", LOG_IMGS_FOLDER_NAME, LOG_GRAPH_NAME, graph_idx);
 
-    log("\n<img src = \"%s\", height= \"%llu\">\n", svg_file_path, IMAGE_HEIGHT);
+    log("\n<img src = \"%s\", width = \"%llu\">\n", svg_file_path, IMAGE_WIDTH);
 }
 
 static tree_error write_graph(const Tree tree, log_call_line_info* line_info, const char* message)

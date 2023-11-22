@@ -45,7 +45,6 @@ int main()
     tree_insert(tree, &current_node, 23);
     tree_insert(tree, &current_node, 24);
 
-    tree_log(tree, "sdadas");
     tree_close_log_file();
 
     tree_pre_order_traversal(root, &tree_text_dump);
