@@ -6,21 +6,24 @@
 #include "Libs/tree.h"
 #include "Libs/tree_text_logs.h"
 #include "Libs/tree_graphic_logs.h"
-#include "tree_file_lib.h"
+#include "tree_lns_lib.h"
+#include "akinator.h"
 
 int main()
 {
     setmode(fileno(stderr), _O_U8TEXT);
     set_log_level(LOG_LVL_DEBUG);
 
-    Tree tree = tree_init();
+    int err = akin_play("aboba.txt");
+    LOG_DEBUG("err = %d", err);
+    // Tree tree = tree_init();
 
     // tree_insert(tree, &root, L"sdasdsa");
     // tree_insert(tree, &root, L"aboba");
-
-    tree_load("aboba.txt", tree);
-    Tree_node root = tree_get_root(tree);
-    tree_text_dump(root);
+//
+//     tree_load("aboba.txt", tree);
+//     Tree_node root = tree_get_root(tree);
+//     tree_text_dump(root);
 
     // tree_insert(tree, &root, 6);
     // Tree_node current_node = tree_get_child_node(root, LEFT);
@@ -49,7 +52,7 @@ int main()
     // tree_insert(tree, &current_node, 23);
     // tree_insert(tree, &current_node, 24);
 
-    tree_destruct(tree);
+    // tree_destruct(tree);
     // tree_save("aboba.txt", tree);
 
     return 0;
