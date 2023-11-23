@@ -14,7 +14,7 @@ CFLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equ
 
 LIBS_DIR = Libs
 BUILD_DIR = build
-EXECUTABLE = tree
+EXECUTABLE = akinator
 
 PROGRAM_SRCS = $(wildcard *.cpp)
 PROGRAM_OBJS = $(patsubst %.cpp, $(BUILD_DIR)/%.o, $(PROGRAM_SRCS))

@@ -1,7 +1,11 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-void free_and_null(void** ptr);
+#define FREE_AND_NULL(PTR)\
+do{\
+    free(PTR);\
+    PTR = NULL;\
+} while(0)
 
 bool create_folder(const char* path);
 

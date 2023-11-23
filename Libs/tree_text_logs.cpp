@@ -8,6 +8,7 @@
 
 FILE* TEXT_DUMP_FILE = stderr;
 
+// BAH: REMAKE LOGS FILES STRUCTURE
 // BAH: Move to other file (textlib.h mb?)
 static void print_n_wchar(FILE* file_ptr, const size_t amount, const wchar_t sym)
 {
@@ -48,9 +49,10 @@ static bool tree_print_linker(Tree_node node)
     return has_offset;
 }
 
-bool tree_text_dump(Tree_node node)
+void tree_text_dump(Tree_node node)
 {
-    setmode(fileno(TEXT_DUMP_FILE), _O_U8TEXT);
+    if (!node)
+        return;
 
     Tree_node parent = tree_get_parent_node(node);
     if (parent)
@@ -73,7 +75,11 @@ bool tree_text_dump(Tree_node node)
 
     tree_elem_t value = 0;
     tree_get_node_value(node, &value);
-    wprintf(L" %d\n", value);
 
-    return true;
+    fwprintf(stderr, L" %ls\n", value);
+
+    Tree_node left_child = tree_get_child_node(node, LEFT);
+    Tree_node right_child = tree_get_child_node(node, RIGHT);
+    tree_text_dump(left_child);
+    tree_text_dump(right_child);
 }

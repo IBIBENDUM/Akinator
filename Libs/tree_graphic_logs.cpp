@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Libs/logs.h"
-#include "Libs/utils.h"
-#include "Libs/time_utils.h"
+#include "logs.h"
+#include "utils.h"
+#include "time_utils.h"
 
 #include "tree.h"
 #include "tree_graphic_logs.h"

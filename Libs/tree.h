@@ -2,6 +2,7 @@
 #define TREE_H_
 
 #include <stddef.h>
+#include <wchar.h>
 
 #include "tree_config.h"
 
@@ -19,14 +20,17 @@ const char* const tree_error_strings[]
     // There is undef inside "tree_errors.inc"
 };
 
-enum Tree_child
+enum Tree_child_side
 {
     LEFT,
     RIGHT
 };
 
+typedef wchar_t* tree_elem_t;
+#define TREE_ELEM_FORMAT "%ls"
+
 // BAH: Tree is a pointer to Tree_struct,
-//      but the user does not know
+//      but the user doesn't know
 //      the declaration of the structure (is it right???)
 struct  Tree_;
 typedef Tree_* Tree;
@@ -34,7 +38,8 @@ typedef Tree_* Tree;
 struct  Tree_node_;
 typedef Tree_node_* Tree_node;
 
-// tree_error tree_init(Tree tree);
+tree_error tree_verify(const Tree tree);
+
 Tree tree_init();
 
 tree_error tree_insert(const Tree tree, Tree_node* node, const tree_elem_t value);
@@ -47,16 +52,10 @@ size_t tree_get_size(const Tree tree);
 
 Tree_node tree_get_parent_node(const Tree_node node);
 
-Tree_node tree_get_child_node(const Tree_node node, const Tree_child child);
+Tree_node tree_get_child_node(const Tree_node node, const Tree_child_side child_side);
 
 size_t tree_get_node_depth(const Tree_node node);
 
 tree_error tree_get_node_value(const Tree_node node, tree_elem_t* value);
-
-tree_error tree_pre_order_traversal(Tree_node node, bool (*function) (Tree_node node));
-
-tree_error tree_in_order_traversal(Tree_node node, bool (*function) (Tree_node node));
-
-tree_error tree_post_order_traversal(Tree_node node, bool (*function) (Tree_node node));
 
 #endif

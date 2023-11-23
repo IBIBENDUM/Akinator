@@ -4,12 +4,12 @@
 #include "tree.h"
 #include "tree_graphic_logs.h"
 #include "tree_config.h"
-#include "Libs/logs.h"
-#include "Libs/utils.h"
+#include "logs.h"
+#include "utils.h"
 
 struct Tree_node_
 {
-    tree_elem_t      value;
+    tree_elem_t value;
     Tree_node_* parent;
     Tree_node_* left;
     Tree_node_* right;
@@ -32,13 +32,14 @@ static size_t tree_calc_size(const Tree_node node)
     return size;
 }
 
-static tree_error tree_verify(const Tree tree)
+tree_error tree_verify(const Tree tree)
 {
     if (!tree)
         return TREE_NULL_PTR_ERR;
 
     if (tree_calc_size(tree->root) != tree->size)
         return TREE_WRONG_SIZE_ERR;
+
     return TREE_NO_ERR;
 }
 
@@ -60,10 +61,17 @@ Tree_node tree_get_parent_node(const Tree_node node)
     return node->parent;
 }
 
+tree_error tree_set_node_value(Tree_node node, const tree_elem_t value)
+{
+    LOG_TRACE("Value setted!");
+    node->value = value;
+    return TREE_NO_ERR;
+}
+
 Tree tree_init()
 {
     LOG_TRACE("Tree initializing...");
-
+    tree_open_log_file();
     Tree tree = (Tree) calloc(1, sizeof(Tree_));
     if (tree)
         LOG_TRACE("Tree initialized!");
@@ -76,18 +84,17 @@ static tree_error tree_node_destruct(Tree_node* node_ptr)
     if (!(*node_ptr))
         return TREE_NULL_NODE_PTR_ERR;
 
-    // BAH: or make by post-order??? (but i will need remake traverse function)
     tree_node_destruct(&(*node_ptr)->left);
     tree_node_destruct(&(*node_ptr)->right);
 
-    free_and_null((void**) node_ptr);
+    FREE_AND_NULL(*node_ptr);
 
     LOG_TRACE("Node destructed!");
 
     return TREE_NO_ERR;
 }
 
-static tree_error tree_node_init(Tree_node* node_ptr, Tree_node parent_ptr, const tree_elem_t value)
+tree_error tree_node_init(Tree_node* node_ptr, Tree_node parent_ptr, const tree_elem_t value)
 {
     LOG_TRACE("Node initializing...");
     *node_ptr = (Tree_node) calloc(1, sizeof(Tree_node_));
@@ -102,12 +109,12 @@ static tree_error tree_node_init(Tree_node* node_ptr, Tree_node parent_ptr, cons
     return TREE_NO_ERR;
 }
 
-Tree_node tree_get_child_node(const Tree_node node, const Tree_child child)
+Tree_node tree_get_child_node(const Tree_node node, const Tree_child_side child_side)
 {
     if (!node)
         return NULL;
 
-    if (child == LEFT)
+    if (child_side == LEFT)
         return node->left;
 
     return node->right;
@@ -143,11 +150,11 @@ tree_error tree_insert(const Tree tree, Tree_node* node, const tree_elem_t value
     tree->size++;
 
     char message[MESSAGE_MAX_LEN] = "";
-    sprintf(message, "%s tree = 0x%llX node = 0x%llX value = " TREE_ELEM_FORMAT, __func__, tree, *node, value);
+    sprintf(message, "%s tree = 0x%llX node = 0x%llX value = " TREE_ELEM_FORMAT,
+            __func__, tree, *node, value);
 
     tree_log(tree, message);
     return err;
-
 }
 
 tree_error tree_destruct(Tree tree)
@@ -157,9 +164,13 @@ tree_error tree_destruct(Tree tree)
     if (!tree)
         return TREE_NULL_PTR_ERR;
 
+    tree_error err = tree_node_destruct(&tree->root);
+
     LOG_TRACE("Tree destructed!");
 
-    return tree_node_destruct(&tree->root);
+    tree_close_log_file();
+
+    return err;
 }
 
 size_t tree_get_node_depth(const Tree_node node)
@@ -177,79 +188,4 @@ tree_error tree_get_node_value(const Tree_node node, tree_elem_t* value)
 
     *value = node->value;
     return TREE_NO_ERR;
-}
-
-tree_error tree_pre_order_traversal(Tree_node node, bool (*function) (Tree_node node))
-{
-    if (!node)
-        return TREE_NULL_NODE_PTR_ERR;
-
-    if (!function)
-        return TREE_NULL_TRAVERSE_FUNCTION_ERR;
-
-    tree_error err = TREE_NO_ERR;
-
-    bool func_err = function(node);
-    if (!func_err)
-        return TREE_TRAVERSE_ERR;
-
-    err = tree_pre_order_traversal(node->left, function);
-    if (err == TREE_TRAVERSE_ERR)
-        return err;
-
-    err = tree_pre_order_traversal(node->right, function);
-    if (err == TREE_NULL_NODE_PTR_ERR)
-        err = TREE_NO_ERR;
-
-    return err;
-}
-
-tree_error tree_in_order_traversal(Tree_node node, bool (*function) (Tree_node node))
-{
-    if (!node)
-        return TREE_NULL_NODE_PTR_ERR;
-
-    if (!function)
-        return TREE_NULL_TRAVERSE_FUNCTION_ERR;
-
-    tree_error err = TREE_NO_ERR;
-
-    err = tree_pre_order_traversal(node->left, function);
-    if (err == TREE_TRAVERSE_ERR)
-        return err;
-
-    bool func_err = function(node);
-    if (!func_err)
-        return TREE_TRAVERSE_ERR;
-
-    err = tree_pre_order_traversal(node->right, function);
-    if (err == TREE_NULL_NODE_PTR_ERR)
-        err = TREE_NO_ERR;
-
-    return err;
-}
-
-tree_error tree_post_order_traversal(Tree_node node, bool (*function) (Tree_node node))
-{
-    if (!node)
-        return TREE_NULL_NODE_PTR_ERR;
-
-    if (!function)
-        return TREE_NULL_TRAVERSE_FUNCTION_ERR;
-
-    tree_error err = TREE_NO_ERR;
-
-    err = tree_pre_order_traversal(node->left, function);
-    if (err == TREE_TRAVERSE_ERR)
-        return err;
-
-    err = tree_pre_order_traversal(node->right, function);
-    if (err == TREE_NULL_NODE_PTR_ERR)
-        err = TREE_NO_ERR;
-
-    bool func_err = function(node);
-    if (!func_err)
-        return TREE_TRAVERSE_ERR;
-
-    return err;
 }

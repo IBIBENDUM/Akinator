@@ -1,15 +1,12 @@
 #ifndef TREE_CONFIG_H_
 #define TREE_CONFIG_H_
 
-#define TREE_ELEM_FORMAT "%d"
-typedef int tree_elem_t;
-
 // ~~~~~~~~~~~~~~~~~~~~~~~LIST_LOGS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const char* const LOG_FOLDER_NAME      =  "log";       ///< log folder name
 const char* const LOG_IMGS_FOLDER_NAME =  "images";    ///< images folder name (this folder is nested in the logs folder)
 const char* const LOG_DOTS_FOLDER_NAME =  "dot";       ///< dots   folder name (this folder is nested in the logs folder)
 const char* const LOG_GRAPH_NAME       =  "graph";     ///< graph file (name without extension)
-const char* const LOG_FILE_NAME        =  "list_log";  ///< log file (name without extension)
+const char* const LOG_FILE_NAME        =  "tree_log";  ///< log file (name without extension)
 
 const size_t IMAGE_WIDTH       = 500;                  ///< Images width in html file
 const size_t MESSAGE_MAX_LEN   = 128;
