@@ -6,7 +6,7 @@
 #include "tree.h"
 #include "textlib.h"
 #include "logs.h"
-#include "tree_lns_Lib.h"
+#include "tree_lns_lib.h"
 
 static tree_lns_error insert_node(wchar_t** buffer_ptr, Tree tree, Tree_node* node_ptr)
 {
