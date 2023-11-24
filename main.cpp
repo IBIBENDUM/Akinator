@@ -7,7 +7,7 @@
 #include "Libs/tree.h"
 #include "Libs/tree_console_dump.h"
 #include "Libs/tree_graphic_logs.h"
-#include "tree_lns_lib.h"
+#include "Libs/tree_lns_lib.h"
 #include "akinator.h"
 
 int main(const int argc, char* const* argv)
