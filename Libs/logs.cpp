@@ -55,14 +55,18 @@ static void console_out(Log_event* log_info, FILE* output_ptr)
 {
     assert(log_info);
 
+    #ifdef _WIN32
     const int prev_file_mode = setmode(fileno(output_ptr), _O_TEXT);
+    #endif
 
     const char* time_str = cast_time_to_str(log_info->time);
     fprintf(output_ptr, COLOR_DARK_GRAY "[%s] %s%-5s: " COLOR_WHITE "%s:%s():%d:\n" TEXT_SETTINGS_RESET, time_str, log_levels_colors[log_info->level], log_levels_strings[log_info->level], log_info->file, log_info->func, log_info->line);
     vfprintf(output_ptr, log_info->format, log_info->args);
     fprintf(output_ptr, "\n\n");
 
+    #ifdef _WIN32
     setmode(fileno(output_ptr), prev_file_mode);
+    #endif
 }
 
 static void file_out(Log_event* log_info, FILE* output_ptr)
