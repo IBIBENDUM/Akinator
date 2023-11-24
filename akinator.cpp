@@ -1,6 +1,5 @@
 #include <assert.h>
 #include <fcntl.h>
-#include <unistd.h>
 
 #define STK_DEBUG
 #include "Libs/stack.h"
@@ -373,9 +372,10 @@ static akin_error akin_main(Akinator* akin)
 
 akin_error akin_play(const char* input_name, const char* output_name)
 {
+    #ifdef _WIN32
     int  in_prev_mode = setmode(fileno(stdin) , _O_U8TEXT);
     int out_prev_mode = setmode(fileno(stdout), _O_U8TEXT);
-
+    #endif
     Tree tree = tree_init();
     tree_lns_error tree_err = tree_load(input_name, tree);
     if (tree_err)
@@ -395,8 +395,9 @@ akin_error akin_play(const char* input_name, const char* output_name)
 
     tree_destruct(tree);
 
+    #ifdef _WIN32
     setmode(fileno(stdin) , in_prev_mode);
     setmode(fileno(stdout), out_prev_mode);
-
+    #endif
     return akin_err;
 }
