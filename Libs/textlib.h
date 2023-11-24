@@ -13,12 +13,6 @@
     #define TL_DEBUG_MSG(...)
 #endif
 
-#define FREE_AND_NULL(ptr)\
-do{\
-    free(ptr);\
-    ptr = NULL;\
-} while(0)
-
 #define HANDLE_ERROR(exp, message, ...)\
     do {\
         if (!(exp))\

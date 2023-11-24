@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
 
 #include "logs.h"
 #include "utils.h"
@@ -11,12 +12,12 @@
 #include "tree_graphic_logs.h"
 #include "tree_config.h"
 
-#define print(...)                 fprintf(file_ptr, __VA_ARGS__)
-#define log(...)                   fprintf(log_file_ptr, __VA_ARGS__)
-#define log_color(COLOR, STR, ...) fprintf(log_file_ptr, "<font color = #%06X>" STR "</font>", COLOR, ##__VA_ARGS__)
+#define print(...)                 fwprintf(file_ptr, __VA_ARGS__)
+#define log(...)                   fwprintf(log_file_ptr, __VA_ARGS__)
+#define log_color(COLOR, STR, ...) fwprintf(log_file_ptr, "<font color = #%06X>" STR "</font>", COLOR, ##__VA_ARGS__)
 
 #define COLOR_FORMAT "%06X"
-#define NODE_SETTINGS_FORMAT "[color = \"#" COLOR_FORMAT "\", weight = %d]\n"
+#define NODE_SETTINGS_FORMAT L"[color = \"#" COLOR_FORMAT "\", weight = %d]\n"
 
 const  size_t GRAPH_MAX_PATH_LEN = 256;
 static FILE* log_file_ptr        = NULL;
@@ -34,23 +35,23 @@ static void write_node_info(FILE* file_ptr, const Tree_node node)
     assert(file_ptr);
     assert(node);
 
-    print("\"{PTR: 0x%llX |", (long long unsigned) node);
+    print(L"\"{PTR: 0x%llX |", (long long unsigned) node);
 
     tree_elem_t value = 0;
     tree_get_node_value(node, &value);
-    print("VALUE: " TREE_ELEM_FORMAT " | ", value);
+    print(L"VALUE: %ls | ", value);
 
     Tree_node left_child = tree_get_child_node(node, LEFT);
     if (left_child)
-        print("{<left> LEFT: 0x%llX |", (long long unsigned) left_child);
+        print(L"{<left> LEFT: 0x%llX |", (long long unsigned) left_child);
     else
-        print("{<left> LEFT: NULL |");
+        print(L"{<left> LEFT: NULL |");
 
     Tree_node right_child = tree_get_child_node(node, RIGHT);
     if (right_child)
-        print("<right> RIGHT: 0x%llX}}\"];\n", (long long unsigned) right_child);
+        print(L"<right> RIGHT: 0x%llX}}\"];\n", (long long unsigned) right_child);
     else
-        print("<right> RIGHT: NULL}}\"];\n");
+        print(L"<right> RIGHT: NULL}}\"];\n");
 }
 
 static void write_node_settings(FILE* file_ptr, const Tree_node node)
@@ -73,7 +74,7 @@ static void write_node_settings(FILE* file_ptr, const Tree_node node)
         fill_color    = OBJ_FILL_COLOR;
         outline_color = OBJ_OUTLINE_COLOR;
     }
-    print("[shape = Mrecord, style = filled, fillcolor = \"#"\
+    print(L"[shape = Mrecord, style = filled, fillcolor = \"#"\
           COLOR_FORMAT "\", color = \"#" COLOR_FORMAT "\", label = ",
           fill_color, outline_color);
 }
@@ -85,7 +86,7 @@ static void write_nodes(FILE* file_ptr, const Tree_node node)
     if (!node)
         return;
 
-    print("\"%llX\" ", (long long unsigned) node);
+    print(L"\"%llX\" ", (long long unsigned) node);
     write_node_settings(file_ptr, node);
     write_node_info(file_ptr, node);
 
@@ -102,11 +103,11 @@ static void link_node_with_child(FILE* file_ptr, const Tree_node node, const Tre
     Tree_node child_parent_node = tree_get_parent_node(child_node);
     if (child_parent_node == node)
     {
-        print("[dir = both]");
+        print(L"[dir = both]");
     }
     else
     {
-        print("\"%llX\":<left> -> \"%llX\"", (long long unsigned) child_node, (long long unsigned) child_parent_node);
+        print(L"\"%llX\":<left> -> \"%llX\"", (long long unsigned) child_node, (long long unsigned) child_parent_node);
         print(NODE_SETTINGS_FORMAT, NEXT_COLOR, 1);
     }
 }
@@ -122,20 +123,20 @@ static void link_nodes(FILE* file_ptr, const Tree_node node)
 
     if (left_child)
     {
-        print("\"%llX\":<left> -> \"%llX\"", (long long unsigned) node, (long long unsigned) left_child);
+        print(L"\"%llX\":<left> -> \"%llX\"", (long long unsigned) node, (long long unsigned) left_child);
         print(NODE_SETTINGS_FORMAT, NEXT_COLOR, 1);
         link_node_with_child(file_ptr, node, left_child);
     }
     if (right_child)
     {
-        print("\"%llX\":<right> -> \"%llX\"", (long long unsigned) node, (long long unsigned) right_child);
+        print(L"\"%llX\":<right> -> \"%llX\"", (long long unsigned) node, (long long unsigned) right_child);
         print(NODE_SETTINGS_FORMAT, NEXT_COLOR, 1);
         link_node_with_child(file_ptr, node, right_child);
     }
     link_nodes(file_ptr, left_child);
     link_nodes(file_ptr, right_child);
 
-    print("\n");
+    print(L"\n");
 }
 
 static void write_head_info(FILE* file_ptr, const Tree tree)
@@ -143,7 +144,7 @@ static void write_head_info(FILE* file_ptr, const Tree tree)
     assert(file_ptr);
     assert(tree);
 
-    print("\"{ROOT_PTR: 0x%llX | SIZE: %llu}\"]",
+    print(L"\"{ROOT_PTR: 0x%llX | SIZE: %llu}\"]",
           (long long unsigned)tree_get_root(tree), tree_get_size(tree));
 }
 
@@ -152,12 +153,12 @@ static void write_header_info(FILE* file_ptr, const Tree tree)
     assert(tree);
     assert(file_ptr);
 
-    print("HEADER");
-    print("[shape = Mrecord, style = filled, fillcolor = \"#"\
+    print(L"HEADER");
+    print(L"[shape = Mrecord, style = filled, fillcolor = \"#"\
           COLOR_FORMAT "\", color = \"#" COLOR_FORMAT "\", label = ",
           OBJ_FILL_COLOR, OBJ_OUTLINE_COLOR);
     write_head_info(file_ptr, tree);
-    print("\n");
+    print(L"\n");
 }
 
 static tree_error create_log_folders()
@@ -184,21 +185,21 @@ static void write_graph_label(FILE* file_ptr, log_call_line_info* line_info, con
     assert(line_info);
 
     const char* time_str = cast_time_to_str(line_info->time);
-    print("[label = \"");
-    print("[%s] ", time_str);
-    print("%s:%s:%d: ", line_info->file, line_info->func, line_info->line);
-    print("%s", message);
-    print("\"]\n");
+    print(L"[label = \"");
+    print(L"[%s] ", time_str);
+    print(L"%s:%s:%d: ", line_info->file, line_info->func, line_info->line);
+    print(L"%s", message);
+    print(L"\"]\n");
 }
 
 static void write_graph_header(FILE* file_ptr, log_call_line_info* line_info, const char* message)
 {
-    print("digraph G{\n");
-    print("rankdir = TB;\n");
-    print("graph [splines = ortho]");
+    print(L"digraph G{\n");
+    print(L"rankdir = TB;\n");
+    print(L"graph [splines = ortho]");
     write_graph_label(file_ptr, line_info, message);
-    print(";\n");
-    print("bgcolor = \"#" COLOR_FORMAT "\";\n", BG_COLOR);
+    print(L";\n");
+    print(L"bgcolor = \"#" COLOR_FORMAT "\";\n", BG_COLOR);
 }
 
 static tree_error open_graph_file(FILE** file_ptr)
@@ -206,6 +207,7 @@ static tree_error open_graph_file(FILE** file_ptr)
     char dot_file_path[GRAPH_MAX_PATH_LEN] = "";
     sprintf(dot_file_path, "%s/%s/%s_%02llu.dot", LOG_FOLDER_NAME, LOG_DOTS_FOLDER_NAME, LOG_GRAPH_NAME, graph_idx);
     *file_ptr = fopen(dot_file_path, "w");
+    setmode(fileno(*file_ptr), _O_U8TEXT);
     if (!*file_ptr)
         return TREE_FILE_OPEN_ERR;
 
@@ -242,7 +244,7 @@ static tree_error create_dot_file(const Tree tree, log_call_line_info* line_info
     write_nodes(file_ptr, root);
     link_nodes(file_ptr, root);
 
-    print("}\n");
+    print(L"}\n");
 
     if (fclose(file_ptr))
         return TREE_FILE_CLOSE_ERR;
@@ -267,7 +269,10 @@ tree_error tree_open_log_file()
 
     log_file_ptr = file_ptr;
 
-    log("<pre>\n");
+    int prev_mode = setmode(fileno(log_file_ptr), _O_U8TEXT);
+    // int out_prev_mode = _setmode(fileno(log_file_ptr), _O_U8TEXT);
+
+    log(L"<pre>\n");
 
     return TREE_NO_ERR;
 }
@@ -300,7 +305,7 @@ static void add_image_to_log()
     char svg_file_path[GRAPH_MAX_PATH_LEN] = "";
     sprintf(svg_file_path, "%s/%s_%02llu.svg", LOG_IMGS_FOLDER_NAME, LOG_GRAPH_NAME, graph_idx);
 
-    log("\n<img src = \"%s\", width = \"%llu\">\n", svg_file_path, IMAGE_WIDTH);
+    log(L"\n<img src = \"%s\", width = \"%llu\">\n", svg_file_path, IMAGE_WIDTH);
 }
 
 static tree_error write_graph(const Tree tree, log_call_line_info* line_info, const char* message)
@@ -324,9 +329,9 @@ static void write_event_header(log_call_line_info* line_info, const char* messag
     assert(line_info);
 
     const char* time_str = cast_time_to_str(line_info->time);
-    log_color(MSG_TIME_COLOR, "[%s] ", time_str);
-    log_color(MSG_LINE_INFO_COLOR, "%s:%s:%d: ", line_info->file, line_info->func, line_info->line);
-    log_color(MSG_LINE_INFO_COLOR, "%s", message);
+    log_color(MSG_TIME_COLOR, L"[%s] ", time_str);
+    log_color(MSG_LINE_INFO_COLOR, L"%s:%s:%d: ", line_info->file, line_info->func, line_info->line);
+    log_color(MSG_LINE_INFO_COLOR, L"%s", message);
 }
 
 tree_error tree_log_(const Tree tree, const char* message, log_call_line_info* line_info)
@@ -338,13 +343,13 @@ tree_error tree_log_(const Tree tree, const char* message, log_call_line_info* l
 
     if (!tree)
     {
-        log_color(MSG_ERROR_COLOR, "ERROR: NULL tree pointer\n");
+        log_color(MSG_ERROR_COLOR, L"ERROR: NULL tree pointer\n");
         return TREE_NULL_PTR_ERR;
     }
     write_event_header(line_info, message);
     write_graph(tree, line_info, message);
 
-    log("\n\n");
+    log(L"\n\n");
 
     return TREE_NO_ERR;
 }

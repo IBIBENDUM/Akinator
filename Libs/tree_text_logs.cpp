@@ -53,6 +53,7 @@ void tree_text_dump(Tree_node node)
 {
     if (!node)
         return;
+    int prev_mode = setmode(fileno(stderr), _O_U8TEXT);
 
     Tree_node parent = tree_get_parent_node(node);
     if (parent)
@@ -82,4 +83,6 @@ void tree_text_dump(Tree_node node)
     Tree_node right_child = tree_get_child_node(node, RIGHT);
     tree_text_dump(left_child);
     tree_text_dump(right_child);
+
+    setmode(fileno(stderr), prev_mode);
 }

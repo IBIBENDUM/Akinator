@@ -3,19 +3,24 @@
 #include <fcntl.h>
 
 #include "Libs/logs.h"
+#include "Libs/console_args.h"
 #include "Libs/tree.h"
 #include "Libs/tree_text_logs.h"
 #include "Libs/tree_graphic_logs.h"
 #include "tree_lns_lib.h"
 #include "akinator.h"
 
-int main()
+int main(const int argc, char* const* argv)
 {
-    setmode(fileno(stderr), _O_U8TEXT);
-    set_log_level(LOG_LVL_DEBUG);
+    Args_values values = {.log_level = LOG_LVL_DEBUG};
+    if (!handle_cmd_args(argc, argv, "i:o:m:h", &values))
+        return 1;
 
-    int err = akin_play("aboba.txt");
+    set_log_level(values.log_level);
+
+    int err = akin_play(values.input_file_name, values.output_file_name);
     LOG_DEBUG("err = %d", err);
+
     // Tree tree = tree_init();
 
     // tree_insert(tree, &root, L"sdasdsa");

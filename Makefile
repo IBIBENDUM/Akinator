@@ -23,7 +23,8 @@ LIBS_OBJS = $(patsubst %.cpp, %.o, $(LIBS_SRCS))
 OBJS = $(PROGRAM_OBJS) $(LIBS_OBJS)
 
 compile: $(BUILD_DIR) $(EXECUTABLE)
-compile_and_run: clean compile run
+compile_and_run: compile run
+full_compile_and_run: clean compile run
 
 $(EXECUTABLE): $(OBJS)
 	g++ $^ $(CFLAGS) -o $@
@@ -39,4 +40,4 @@ clean:
 	del /Q $(LIBS_DIR)\*.o
 
 run:
-	.\$(EXECUTABLE)
+	.\$(EXECUTABLE) -i base.txt -o new_base.txt

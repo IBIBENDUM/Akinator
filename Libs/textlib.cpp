@@ -10,6 +10,7 @@
 #include <fcntl.h>
 
 #include "textlib.h"
+#include "utils.h"
 
 ssize_t get_file_size(const ssize_t descriptor)
 {

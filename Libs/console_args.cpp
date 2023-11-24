@@ -23,6 +23,18 @@ bool handle_cmd_args(const int argc, char* const* argv, const char* format, Args
     {
         switch (arg)
         {
+            case 'i':
+            {
+                values->input_file_name = optarg;
+                break;
+            }
+
+            case 'o':
+            {
+                values->output_file_name = optarg;
+                break;
+            }
+
             case 'm':
             {
                 bool is_level_found = false;
@@ -58,6 +70,19 @@ bool handle_cmd_args(const int argc, char* const* argv, const char* format, Args
             }
         }
     }
+
+    if (!values->input_file_name)
+    {
+        LOG_ERROR("Option -i is mandatory!\n");
+        return false;
+    }
+
+    if (!values->output_file_name)
+    {
+        LOG_ERROR("Option -o is mandatory!\n");
+        return false;
+    }
+
     return true;
 }
 
@@ -72,6 +97,8 @@ void print_help(const char* format)
             switch (arg)
             {
                 case 'h':   printf("-h             Display help message\n"); break;
+                case 'i':   printf("-i             Choose input file name\n"); break;
+                case 'o':   printf("-o             Choose output file name\n"); break;
                 case 'm':   printf("-m             Set log level (TRACE, DEBUG, INFO, WARN, ERROR, DISABLE)\n"); break;
                 default:    LOG_ERROR("No help information"); break; // ???
             }
