@@ -14,14 +14,15 @@ static tree_lns_error insert_node(wchar_t** buffer_ptr, Tree tree, Tree_node* no
     assert(tree);
     assert(node_ptr);
 
-    size_t   word_len = 0;
-    wchar_t* word     = get_word(*buffer_ptr, &word_len);
+    wchar_t* str = move_to_non_space_sym(*buffer_ptr);
+    str++;
 
-    *buffer_ptr += word_len + 1;
+    size_t   str_len = wcscspn(str, L"\"");
+    *buffer_ptr = str + str_len;
     **buffer_ptr = L'\0';
     (*buffer_ptr)++;
 
-    tree_insert(tree, node_ptr, word);
+    tree_insert(tree, node_ptr, str);
 
     return TREE_LNS_NO_ERR;
 }
@@ -144,7 +145,7 @@ static void tree_print_node_in_file(FILE* file_ptr, const Tree_node node)
     tree_elem_t value = 0;
     tree_get_node_value(node, &value);
 
-    print(L"{ %ls ", value);
+    print(L"{ \"%ls\" ", value);
 
     if (left_child)
         tree_print_node_in_file(file_ptr, left_child);

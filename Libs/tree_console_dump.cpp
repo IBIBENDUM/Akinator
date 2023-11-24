@@ -71,7 +71,7 @@ void tree_console_dump(Tree_node node)
     }
     else
     {
-        putwc(L'└', TEXT_DUMP_FILE);
+        putwc(L'→', TEXT_DUMP_FILE);
     }
 
     tree_elem_t value = 0;

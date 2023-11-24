@@ -40,4 +40,4 @@ clean:
 	del /Q $(LIBS_DIR)\*.o
 
 run:
-	.\$(EXECUTABLE) -i base.txt -o new_base.txt
+	.\$(EXECUTABLE) -i base.txt -o base.txt
