@@ -2,7 +2,7 @@
 #include <fcntl.h>
 
 #include "Libs/tree.h"
-#include "Libs/tree_text_logs.h"
+#include "Libs/tree_console_dump.h"
 #include "Libs/logs.h"
 #include "Libs/utils.h"
 #include "tree_lns_lib.h"
@@ -95,7 +95,7 @@ static akin_error akin_add_node(Akinator* akin, Tree_node node)
     tree_insert(akin->tree, &node, left_string);
     tree_insert(akin->tree, &node, node_value);
 
-    tree_text_dump(tree_get_root(akin->tree));
+    tree_console_dump(tree_get_root(akin->tree));
     return AKIN_NO_ERR;
 }
 
@@ -107,7 +107,7 @@ static akin_error akin_guess(Akinator* akin, Tree_node node)
         return AKIN_NULL_PTR;
 
     if (!node)
-        AKIN_NULL_NODE_PTR;
+        return AKIN_NULL_NODE_PTR;
 
     akin_print_guess_question(node);
 

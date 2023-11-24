@@ -3,7 +3,7 @@
 #include <fcntl.h>
 
 #include "tree.h"
-#include "tree_text_logs.h"
+#include "tree_console_dump.h"
 #include "tree_config.h"
 
 FILE* TEXT_DUMP_FILE = stderr;
@@ -49,7 +49,7 @@ static bool tree_print_linker(Tree_node node)
     return has_offset;
 }
 
-void tree_text_dump(Tree_node node)
+void tree_console_dump(Tree_node node)
 {
     if (!node)
         return;
@@ -81,8 +81,8 @@ void tree_text_dump(Tree_node node)
 
     Tree_node left_child = tree_get_child_node(node, LEFT);
     Tree_node right_child = tree_get_child_node(node, RIGHT);
-    tree_text_dump(left_child);
-    tree_text_dump(right_child);
+    tree_console_dump(left_child);
+    tree_console_dump(right_child);
 
     setmode(fileno(stderr), prev_mode);
 }

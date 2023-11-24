@@ -5,7 +5,7 @@
 #include "Libs/logs.h"
 #include "Libs/console_args.h"
 #include "Libs/tree.h"
-#include "Libs/tree_text_logs.h"
+#include "Libs/tree_console_dump.h"
 #include "Libs/tree_graphic_logs.h"
 #include "tree_lns_lib.h"
 #include "akinator.h"
@@ -28,7 +28,7 @@ int main(const int argc, char* const* argv)
 //
 //     tree_load("aboba.txt", tree);
 //     Tree_node root = tree_get_root(tree);
-//     tree_text_dump(root);
+//     tree_console_dump(root);
 
     // tree_insert(tree, &root, 6);
     // Tree_node current_node = tree_get_child_node(root, LEFT);

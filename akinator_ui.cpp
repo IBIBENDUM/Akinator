@@ -4,15 +4,13 @@
 #include <assert.h>
 
 #include "Libs/tree.h"
-#include "Libs/tree_text_logs.h"
+#include "Libs/tree_console_dump.h"
 #include "Libs/colors.h"
 #include "akinator.h"
 #include "akinator_ui.h"
 
 wchar_t akin_get_input()
 {
-
-
     wchar_t input = getwchar();
     while (iswspace(input))
         input = getwchar();
@@ -22,7 +20,7 @@ wchar_t akin_get_input()
         ch = getwchar();
     } while (ch && ch != L'\n' && ch != WEOF);
 
-    return towlower(input);
+    return input;
 }
 
 bool akin_get_answer()
@@ -50,7 +48,7 @@ void akin_dump_tree(Akinator* akin)
 {
     assert(akin);
     Tree_node root = tree_get_root(akin->tree);
-    tree_text_dump(root);
+    tree_console_dump(root);
 }
 
 void akin_print_guess_question(Tree_node node)
