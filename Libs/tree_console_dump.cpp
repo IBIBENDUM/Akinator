@@ -54,7 +54,9 @@ void tree_console_dump(Tree_node node)
     if (!node)
         return;
 
+    #ifdef _WIN32
     int prev_mode = setmode(fileno(stderr), _O_U8TEXT);
+    #endif
 
     Tree_node parent = tree_get_parent_node(node);
     if (parent)
@@ -85,5 +87,7 @@ void tree_console_dump(Tree_node node)
     tree_console_dump(left_child);
     tree_console_dump(right_child);
 
+    #ifdef _WIN32
     setmode(fileno(stderr), prev_mode);
+    #endif
 }
