@@ -2,6 +2,7 @@
 #define STACK_H
 
 #include <limits.h>
+#include <stddef.h>
 
 /// -DDEBUG  enable debug messages and logs
 /// -DHASH   enable hash protection

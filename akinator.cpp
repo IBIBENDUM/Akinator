@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <fcntl.h>
+#include <io.h>
 
 #define STK_DEBUG
 #include "Libs/stack.h"
