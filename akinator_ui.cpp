@@ -32,12 +32,12 @@ bool akin_get_answer()
 //~~~~~~~~~~~~~~~~~~~~~PRINT_FUNCTIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void akin_print_compare_ask_first_object()
 {
-    wprintf(L"Введи первое слово для сравнения: \n");
+    wprintf(L"" PAINT_TEXT(COLOR_LIGHT_CYAN, "Введи первое слово для сравнения: \n"));
 }
 
 void akin_print_compare_ask_second_object()
 {
-    wprintf(L"Введи второе слово для сравнения: \n");
+    wprintf(L"" PAINT_TEXT(COLOR_LIGHT_CYAN, "Введи второе слово для сравнения: \n"));
 }
 
 void akin_print_compare_match_msg(const Tree_node node, const int property_value)
@@ -110,7 +110,7 @@ void akin_print_add_node_start_msg()
 
 void akin_print_memory_full_err()
 {
-    wprintf(L"Память для строки заполнена, выйди и зайди нормально!\n");
+    wprintf(L"" PAINT_TEXT(COLOR_LIGHT_CYAN, "Память для строки заполнена, выйди и зайди нормально!\n"));
 }
 
 void akin_print_obj_question(wchar_t* str_1, wchar_t* str_2)
@@ -140,7 +140,7 @@ void akin_print_guess_question(Tree_node node)
 
 void akin_print_ask_for_save()
 {
-    wprintf(L"Перезаписать дерево? ([д]а / [*]ет)\n");
+    wprintf(L"" PAINT_TEXT(COLOR_LIGHT_CYAN, "Перезаписать дерево? ([д]а / [*]ет)\n"));
 }
 
 void akin_print_guess_start_msg()
@@ -156,11 +156,11 @@ void akin_print_main_wrong_input_msg()
 void akin_print_menu()
 {
     wprintf(L"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-    wprintf(L"Что сегодня?\n"
-           L"[у] - угадывание\n"
-           L"[д] - дерево\n"
-           L"[о] - определение\n"
-           L"[с] - сравнение\n"
-           L"[ы] - ыйти\n");
+    wprintf(L"😏😏😏 Что сегодня?: 😏😏😏\n"
+           L"[у] - угадывание 🌐\n"
+           L"[д] - дерево 🌳\n"
+           L"[о] - определение ☝\n"
+           L"[с] - сравнение 💕\n"
+           L"[ы] - ыйти 😖\n");
     wprintf(L"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 }

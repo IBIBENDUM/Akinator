@@ -8,7 +8,7 @@
 #include "Libs/tree_console_dump.h"
 #include "Libs/logs.h"
 #include "Libs/utils.h"
-#include "tree_lns_lib.h"
+#include "Libs/tree_lns_lib.h"
 #include "akinator.h"
 #include "akinator_ui.h"
 
@@ -23,22 +23,17 @@ static bool check_is_object_node(Tree_node node)
     return (!left_child && !right_child);
 }
 
-#define AKIN_RETURN_IF_ERR(ERROR) \
-    do {                          \
-        if (ERROR != AKIN_NO_ERR) \
-            return ERROR;         \
-    } while(0)
-
 static akin_error allocate_word(Akinator* akin, wchar_t** string)
 {
     assert(akin);
+
     if (akin->buffer_size + MAX_STRING_SIZE > akin->buffer_capacity)
         return AKIN_MEMORY_FULL;
 
     wchar_t* buffer_ptr = akin->buffer + akin->buffer_size;
 
     size_t string_len = 0;
-    while (string_len < 2)
+    while (string_len < 2) // BAH: Repeat if "\n" line
     {
         if (!fgetws(buffer_ptr, MAX_STRING_SIZE, stdin))
             return AKIN_STR_READ_ERR;
@@ -52,6 +47,12 @@ static akin_error allocate_word(Akinator* akin, wchar_t** string)
     return AKIN_NO_ERR;
 }
 
+#define AKIN_RETURN_IF_ERR(ERROR) \
+    do {                          \
+        if (ERROR != AKIN_NO_ERR) \
+            return ERROR;         \
+    } while(0)
+
 static akin_error akin_add_node(Akinator* akin, Tree_node node)
 {
     assert(node);
@@ -63,6 +64,7 @@ static akin_error akin_add_node(Akinator* akin, Tree_node node)
     akin_print_add_node_start_msg();
 
     akin_error err = AKIN_NO_ERR;
+
     wchar_t* left_string = NULL;
     err = allocate_word(akin, &left_string);
     AKIN_RETURN_IF_ERR(err);
@@ -83,11 +85,12 @@ static akin_error akin_add_node(Akinator* akin, Tree_node node)
     tree_insert(akin->tree, &node, node_value);
 
     tree_console_dump(tree_get_root(akin->tree));
+
     return AKIN_NO_ERR;
 }
+#undef AKIN_RETURN_IF_ERR
 
 //~~~~~~~~~~~~~~~~~~~~~~~GUESS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 static akin_error akin_guess_recurse(Akinator* akin, Tree_node node)
 {
     if (!akin)
@@ -109,7 +112,6 @@ static akin_error akin_guess_recurse(Akinator* akin, Tree_node node)
         }
         else
             return akin_add_node(akin, node);
-        return AKIN_NO_ERR;
     }
 
     Tree_node left_child  = tree_get_child_node(node, LEFT );
@@ -123,11 +125,9 @@ static akin_error akin_guess_recurse(Akinator* akin, Tree_node node)
 
 static akin_error akin_guess(Akinator* akin)
 {
-    // tree_verify();
     akin_print_guess_start_msg();
     return akin_guess_recurse(akin, tree_get_root(akin->tree));
 }
-
 //~~~~~~~~~~~~~~~~~~~~~~guess~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~~~~~~~~~~~~~~DEFINITION~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -146,7 +146,7 @@ static akin_error akin_find_object(Tree_node node, wchar_t* ref, Tree_node* dest
         return AKIN_STR_NULL_PTR;
 
     akin_error err = AKIN_NO_ERR;
-    if (wcscmp(value, ref) == 0)
+    if (check_is_object_node(node) && wcscmp(value, ref) == 0)
     {
         *dest = node;
         return AKIN_NODE_FOUND;
@@ -170,7 +170,6 @@ static akin_error akin_find_object(Tree_node node, wchar_t* ref, Tree_node* dest
             return err;
 
         pop_stack(stk, &stk_value);
-
     }
     return err;
 }
@@ -297,7 +296,6 @@ static akin_error akin_compare_objects(Akinator* akin)
     init_stack(obj_1_stk);
     Tree_node obj_1_node = NULL;
     akin_error err_1 = akin_get_object(akin, &obj_1_stk, &obj_1_node);
-    dump_stack(stderr, &obj_1_stk, 0);
 
     akin_print_compare_ask_second_object();
     stack obj_2_stk = {};
@@ -361,7 +359,7 @@ static akin_error akin_main(Akinator* akin)
         case L'д': akin_dump_tree(akin);              break;
         case L'о': err = akin_describe_object(akin);
         {
-            if (err = AKIN_NODE_FOUND)
+            if (err == AKIN_NODE_FOUND)
                 err = AKIN_NO_ERR;
             break;
         }

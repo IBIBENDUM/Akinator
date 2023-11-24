@@ -27,8 +27,6 @@ void akin_print_describe_start_msg();
 
 void akin_print_memory_full_err();
 
-void akin_print_word_wrong_input();
-
 void akin_print_guess_correct();
 
 void akin_print_obj_question(wchar_t* str_1, wchar_t* str_2);
@@ -36,8 +34,6 @@ void akin_print_obj_question(wchar_t* str_1, wchar_t* str_2);
 void akin_print_describe_success_msg(const Tree_node root, const Tree_node node);
 
 void akin_print_guess_question(Tree_node node);
-
-void akin_print_add_node_question();
 
 void akin_print_main_wrong_input_msg();
 

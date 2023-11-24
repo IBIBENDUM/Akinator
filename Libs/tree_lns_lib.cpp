@@ -3,9 +3,9 @@
 #include <wchar.h>
 #include <fcntl.h>
 
-#include "Libs/tree.h"
-#include "Libs/textlib.h"
-#include "Libs/logs.h"
+#include "tree.h"
+#include "textlib.h"
+#include "logs.h"
 #include "tree_lns_Lib.h"
 
 static tree_lns_error insert_node(wchar_t** buffer_ptr, Tree tree, Tree_node* node_ptr)

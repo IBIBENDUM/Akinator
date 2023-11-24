@@ -53,6 +53,7 @@ void tree_console_dump(Tree_node node)
 {
     if (!node)
         return;
+
     int prev_mode = setmode(fileno(stderr), _O_U8TEXT);
 
     Tree_node parent = tree_get_parent_node(node);
