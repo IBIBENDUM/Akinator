@@ -3,7 +3,9 @@
 
 #include <limits.h>
 #include <stddef.h>
-
+#ifdef __linux__
+#include <sys/types.h>
+#endif
 /// -DDEBUG  enable debug messages and logs
 /// -DHASH   enable hash protection
 /// -DSNITCH enable shitch protection
