@@ -207,7 +207,9 @@ static tree_error open_graph_file(FILE** file_ptr)
     char dot_file_path[GRAPH_MAX_PATH_LEN] = "";
     sprintf(dot_file_path, "%s/%s/%s_%02llu.dot", LOG_FOLDER_NAME, LOG_DOTS_FOLDER_NAME, LOG_GRAPH_NAME, graph_idx);
     *file_ptr = fopen(dot_file_path, "w");
+    #ifdef _WIN32
     setmode(fileno(*file_ptr), _O_U8TEXT);
+    #endif
     if (!*file_ptr)
         return TREE_FILE_OPEN_ERR;
 
@@ -269,8 +271,9 @@ tree_error tree_open_log_file()
 
     log_file_ptr = file_ptr;
 
+    #ifdef _WIN32
     int prev_mode = setmode(fileno(log_file_ptr), _O_U8TEXT);
-    // int out_prev_mode = _setmode(fileno(log_file_ptr), _O_U8TEXT);
+    #endif
 
     log(L"<pre>\n");
 
