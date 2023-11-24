@@ -174,7 +174,9 @@ tree_lns_error tree_save(const char* file_name, Tree tree)
     if (!file_ptr)
         return TREE_LNS_FILE_OPEN_ERR;
 
+    #ifdef _WIN32
     setmode(fileno(file_ptr), _O_U8TEXT);
+    #endif
     tree_print_node_in_file(file_ptr, tree_get_root(tree));
 
     const int fclose_ret_val = fclose(file_ptr);
