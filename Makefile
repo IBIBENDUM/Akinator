@@ -12,7 +12,7 @@ PROGRAM_OBJS = $(patsubst %.cpp, %.o, $(PROGRAM_SRCS))
 PROGRAM_OBJS_PATH = $(subst /,\, $(PROGRAM_OBJS))
 OBJS = $(PROGRAM_OBJS)
 
-compile: print $(BUILD_DIR) $(EXECUTABLE)
+compile: $(BUILD_DIR) $(EXECUTABLE)
 compile_and_run: compile run
 full_compile_and_run: clean compile run
 
