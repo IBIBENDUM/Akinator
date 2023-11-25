@@ -8,7 +8,7 @@ struct Args_values
 {
     const char*    input_file_name;
     bool           speak_async;
-    log_level log_level;
+    log_level      cur_log_level;
 };
 
 bool handle_cmd_args(const int argc, char* const* argv, const char* format, Args_values* values);

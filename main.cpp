@@ -13,11 +13,11 @@ int main(const int argc, char* const* argv)
     txDisableAutoPause();
     #endif
 
-    Args_values values = {.log_level = LOG_LVL_DEBUG};
+    Args_values values = {.cur_log_level = LOG_LVL_DEBUG};
     if (!handle_cmd_args(argc, argv, "i:am:h", &values))
         return 1;
 
-    set_log_level(values.log_level);
+    set_log_level(values.cur_log_level);
 
     int err = akin_play(values.input_file_name, values.speak_async);
     LOG_DEBUG("err = %d", err);

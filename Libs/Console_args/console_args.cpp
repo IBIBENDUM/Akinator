@@ -36,8 +36,8 @@ bool handle_cmd_args(const int argc, char* const* argv, const char* format, Args
                 {
                     if (strcmp(optarg, log_levels_strings[i]) == 0)
                     {
-                        values->log_level = (log_level) i;
-                        set_log_level(values->log_level);
+                        values->cur_log_level = (log_level) i;
+                        set_log_level(values->cur_log_level);
                         is_level_found = true;
                         break;
                     }
