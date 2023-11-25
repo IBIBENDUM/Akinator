@@ -4,10 +4,9 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "logs.h"
-#include "utils.h"
-#include "time_utils.h"
-
+#include "../Logs/logs.h"
+#include "../Utils/utils.h"
+#include "../Utils/time_utils.h"
 #include "tree.h"
 #include "tree_graphic_logs.h"
 #include "tree_config.h"

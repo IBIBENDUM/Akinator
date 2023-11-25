@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <wchar.h>
 
-#include "colors.h"
-#include "logs.h"
+#include "../Utils/colors.h"
+#include "../Logs/logs.h"
 
 #ifdef TL_DEBUG
     #define TL_DEBUG_MSG(...) DEBUG_MSG(COLOR_YELLOW, __VA_ARGS__)

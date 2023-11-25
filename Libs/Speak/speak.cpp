@@ -2,7 +2,7 @@
 
 #define   TX_USE_SPEAK
 #define   TX_COMPILED
-#include "TXLib.h"
+#include "../TXLib/TXLib.h"
 
 #include <stdio.h>
 #include <wchar.h>

@@ -2,12 +2,12 @@
 #include <wctype.h>
 #include <assert.h>
 
-#include "Libs/speak.h"
-#include "Libs/stack.h"
-#include "Libs/tree.h"
-#include "Libs/tree_console_dump.h"
-#include "Libs/colors.h"
-#include "Libs/logs.h"
+#include "Libs/Speak/speak.h"
+#include "Libs/Stack/stack.h"
+#include "Libs/Tree/tree.h"
+#include "Libs/Tree/tree_console_dump.h"
+#include "Libs/Logs/logs.h"
+#include "Libs/Utils/colors.h"
 #include "akinator.h"
 #include "akinator_ui.h"
 

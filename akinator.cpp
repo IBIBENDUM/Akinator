@@ -2,13 +2,13 @@
 #include <fcntl.h>
 
 #define STK_DEBUG
-#include "Libs/stack.h"
-#include "Libs/stack_logs.h"
-#include "Libs/tree.h"
-#include "Libs/tree_console_dump.h"
-#include "Libs/logs.h"
-#include "Libs/utils.h"
-#include "Libs/tree_lns_lib.h"
+#include "Libs/Stack/stack.h"
+#include "Libs/Stack/stack_logs.h"
+#include "Libs/Tree/tree.h"
+#include "Libs/Tree/tree_console_dump.h"
+#include "Libs/Tree/tree_lns_lib.h"
+#include "Libs/Logs/logs.h"
+#include "Libs/Utils/utils.h"
 #include "akinator.h"
 #include "akinator_ui.h"
 
@@ -370,6 +370,7 @@ static akin_error akin_main(Akinator* akin)
     }
     return err;
 }
+#undef ASYNC
 
 akin_error akin_play(const char* input_name, const bool speak_async)
 {
@@ -402,3 +403,4 @@ akin_error akin_play(const char* input_name, const bool speak_async)
 
     return akin_err;
 }
+

@@ -1,7 +1,7 @@
 #ifndef STACK_LOGS_H
 #define STACK_LOGS_H
 
-#include "logs.h"
+#include "../Logs/logs.h"
 
 #ifdef STK_DEBUG
     #define STK_DEBUG_MSG(...) DEBUG_MSG(COLOR_YELLOW, __VA_ARGS__)

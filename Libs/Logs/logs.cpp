@@ -9,8 +9,8 @@
 #include <fcntl.h>
 
 #include "logs.h"
-#include "colors.h"
-#include "time_utils.h"
+#include "../Utils/colors.h"
+#include "../Utils/time_utils.h"
 
 bool log_mute = false;
 

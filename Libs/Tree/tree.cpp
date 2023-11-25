@@ -4,8 +4,8 @@
 #include "tree.h"
 #include "tree_graphic_logs.h"
 #include "tree_config.h"
-#include "logs.h"
-#include "utils.h"
+#include "../Logs/logs.h"
+#include "../Utils/utils.h"
 
 struct Tree_node_
 {
