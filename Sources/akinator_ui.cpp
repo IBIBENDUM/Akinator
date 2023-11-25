@@ -2,14 +2,14 @@
 #include <wctype.h>
 #include <assert.h>
 
-#include "Libs/Speak/speak.h"
-#include "Libs/Stack/stack.h"
-#include "Libs/Tree/tree.h"
-#include "Libs/Tree/tree_console_dump.h"
-#include "Libs/Logs/logs.h"
-#include "Libs/Utils/colors.h"
-#include "akinator.h"
-#include "akinator_ui.h"
+#include "../Libs/Speak/speak.h"
+#include "../Libs/Stack/stack.h"
+#include "../Libs/Tree/tree.h"
+#include "../Libs/Tree/tree_console_dump.h"
+#include "../Libs/Logs/logs.h"
+#include "../Libs/Utils/colors.h"
+#include "../Includes/akinator.h"
+#include "../Includes/akinator_ui.h"
 
 wchar_t akin_get_input()
 {

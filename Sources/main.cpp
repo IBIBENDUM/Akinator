@@ -1,11 +1,11 @@
 #ifdef    _WIN32
 #define   TX_COMPILED
-#include "Libs/TXLib/TXLib.h"
+#include "../Libs/TXLib/TXLib.h"
 #endif
 
-#include "Libs/Logs/logs.h"
-#include "Libs/Console_args/console_args.h"
-#include "akinator.h"
+#include "../Libs/Logs/logs.h"
+#include "../Libs/Console_args/console_args.h"
+#include "../Includes/akinator.h"
 
 int main(const int argc, char* const* argv)
 {

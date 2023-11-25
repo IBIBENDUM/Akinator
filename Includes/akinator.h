@@ -1,7 +1,7 @@
 #ifndef AKINATOR_H_
 #define AKINATOR_H_
 
-#include "Libs/Tree/tree.h"
+#include "../Libs/Tree/tree.h"
 
 enum akin_error
 {

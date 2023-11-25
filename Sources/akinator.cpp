@@ -2,15 +2,15 @@
 #include <fcntl.h>
 
 #define STK_DEBUG
-#include "Libs/Stack/stack.h"
-#include "Libs/Stack/stack_logs.h"
-#include "Libs/Tree/tree.h"
-#include "Libs/Tree/tree_console_dump.h"
-#include "Libs/Tree/tree_lns_lib.h"
-#include "Libs/Logs/logs.h"
-#include "Libs/Utils/utils.h"
-#include "akinator.h"
-#include "akinator_ui.h"
+#include "../Libs/Stack/stack.h"
+#include "../Libs/Stack/stack_logs.h"
+#include "../Libs/Tree/tree.h"
+#include "../Libs/Tree/tree_console_dump.h"
+#include "../Libs/Tree/tree_lns_lib.h"
+#include "../Libs/Logs/logs.h"
+#include "../Libs/Utils/utils.h"
+#include "../Includes/akinator.h"
+#include "../Includes/akinator_ui.h"
 
 #define ASYNC akin->speak_async
 
