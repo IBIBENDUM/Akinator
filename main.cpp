@@ -1,13 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-
+#include <locale.h>
 #include "Libs/logs.h"
 #include "Libs/console_args.h"
-#include "Libs/tree.h"
-#include "Libs/tree_console_dump.h"
-#include "Libs/tree_graphic_logs.h"
-#include "Libs/tree_lns_lib.h"
 #include "akinator.h"
 
 int main(const int argc, char* const* argv)

@@ -1,6 +1,8 @@
 #ifndef AKINATOR_H_
 #define AKINATOR_H_
 
+#include "Libs/tree.h"
+
 enum akin_error
 {
     AKIN_NO_ERR,

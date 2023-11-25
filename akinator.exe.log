@@ -1,0 +1,1500 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF798440543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF6984404A8 (64-bit), Flags: Cmdre0, Thread: 0x6BDC (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF6983F2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF6983F29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF698404819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF6984047B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF6983FE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF6983FDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF6983FD506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#21 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#22 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FF69840BB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#26 0x00007FF6983F292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:39:08
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF798440543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF6984404A8 (64-bit), Flags: Cmdre0, Thread: 0x6BDC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF6983F2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF6983F29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF698404819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF6984047B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF6983FE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF6983FDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF6983FD506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#21 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#22 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FF69840BB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#26 0x00007FF6983F292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:39:09
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF84D130543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF74D1304A8 (64-bit), Flags: Cmdre0, Thread: 0x5C70 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF74D0E2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF74D0E29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF74D0F4819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF74D0F47B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF74D0EE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF74D0EDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF74D0ED506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#21 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#22 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FF74D0FBB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#26 0x00007FF74D0E292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:41:22
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF84D130543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF74D1304A8 (64-bit), Flags: Cmdre0, Thread: 0x5C70 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF74D0E2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF74D0E29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF74D0F4819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF74D0F47B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF74D0EE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF74D0EDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF74D0ED506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#21 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#22 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FF74D0FBB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#26 0x00007FF74D0E292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:41:23
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF850830543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7508304A8 (64-bit), Flags: Cmdre0, Thread: 0x5CD4 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7507E2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7507E29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7507F4819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7507F47B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7507EE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7507EDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7507ED506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697818 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#23 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FF7507FBB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#28 0x00007FF7507E292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:51:13
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF850830543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7508304A8 (64-bit), Flags: Cmdre0, Thread: 0x5CD4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7507E2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7507E29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7507F4819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7507F47B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7507EE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7507EDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7507ED506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697818 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#23 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FF7507FBB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#28 0x00007FF7507E292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:51:14
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF743530543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF6435304A8 (64-bit), Flags: Cmdre0, Thread: 0x580 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF6434E2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF6434E29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF6434F4819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF6434F47B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF6434EE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF6434EDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF6434ED506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5699AA2 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#24 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#28 0x00007FF6434FBB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#29 0x00007FF6434E292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:53:27
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF743530543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF6435304A8 (64-bit), Flags: Cmdre0, Thread: 0x580 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF6434E2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF6434E29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF6434F4819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF6434F47B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF6434EE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF6434EDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF6434ED506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5699AA2 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#24 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#28 0x00007FF6434FBB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#29 0x00007FF6434E292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:53:27
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF8FB6A0543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7FB6A04A8 (64-bit), Flags: Cmdre0, Thread: 0x1F1C (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7FB652992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7FB6529DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7FB664819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7FB6647B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7FB65E7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7FB65DB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7FB65D506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C969 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#22 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FF7FB66BB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#27 0x00007FF7FB65292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:53:48
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF8FB6A0543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7FB6A04A8 (64-bit), Flags: Cmdre0, Thread: 0x1F1C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7FB652992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7FB6529DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7FB664819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7FB6647B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7FB65E7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7FB65DB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7FB65D506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C969 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#22 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FF7FB66BB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#27 0x00007FF7FB65292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 00:53:47
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF8EC070543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7EC0704A8 (64-bit), Flags: Cmdre0, Thread: 0x3E50 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7EC022992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7EC0229DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7EC034819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7EC0347B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7EC02E7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7EC02DB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7EC02D506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697818 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#24 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#28 0x00007FF7EC03BB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#29 0x00007FF7EC02292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 01:04:53
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF8EC070543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7EC0704A8 (64-bit), Flags: Cmdre0, Thread: 0x3E50 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7EC022992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7EC0229DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7EC034819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7EC0347B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7EC02E7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7EC02DB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7EC02D506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697818 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#24 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#28 0x00007FF7EC03BB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#29 0x00007FF7EC02292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 01:04:54
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF800D40543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF700D404A8 (64-bit), Flags: Cmdre0, Thread: 0x3188 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF700CF2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF700CF29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF700D04819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF700D047B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF700CFE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF700CFDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF700CFD506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697818 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#24 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#28 0x00007FF700D0BB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#29 0x00007FF700CF292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 01:05:10
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF800D40543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF700D404A8 (64-bit), Flags: Cmdre0, Thread: 0x3188 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF700CF2992 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF700CF29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF700D04819 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF700D047B4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF700CFE7A1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF700CFDB9E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF700CFD506 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697818 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#24 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#28 0x00007FF700D0BB2E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#29 0x00007FF700CF292E in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 00:30:40, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 01:05:09
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF8E7D10543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7E7D104A8 (64-bit), Flags: Cmdre0, Thread: 0x60D8 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7E7CC2A42 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7E7CC2A8A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7E7CD48C9 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7E7CD4864 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7E7CCE851 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7E7CCDC4E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7E7CCD5B6 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697B43 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#22 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FF7E7CDBBDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#27 0x00007FF7E7CC29B0 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#28 0x00007FF7E7CC29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:03:25
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF8E7D10543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7E7D104A8 (64-bit), Flags: Cmdre0, Thread: 0x60D8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7E7CC2A42 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7E7CC2A8A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7E7CD48C9 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7E7CD4864 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7E7CCE851 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7E7CCDC4E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7E7CCD5B6 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697B43 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#22 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FF7E7CDBBDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#27 0x00007FF7E7CC29B0 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#28 0x00007FF7E7CC29DA in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:03:25
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF89E390543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF79E3904A8 (64-bit), Flags: Cmdre0, Thread: 0x28E8 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF79E342AD2 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF79E342B1A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF79E354959 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF79E3548F4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF79E34E8E1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF79E34DCDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF79E34D646 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C969 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#23 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FF79E35BC6E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#28 0x00007FF79E342A44 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#29 0x00007FF79E342A71 in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:23:38
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF89E390543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF79E3904A8 (64-bit), Flags: Cmdre0, Thread: 0x28E8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF79E342AD2 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF79E342B1A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF79E354959 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF79E3548F4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF79E34E8E1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF79E34DCDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF79E34D646 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C969 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#23 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FF79E35BC6E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#28 0x00007FF79E342A44 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#29 0x00007FF79E342A71 in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:23:38
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF830A40543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF730A404A8 (64-bit), Flags: Cmdre0, Thread: 0x6598 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7309F2AD2 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7309F2B1A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF730A04959 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF730A048F4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7309FE8E1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7309FDCDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7309FD646 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#22 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FF730A0BC6E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#27 0x00007FF7309F2A44 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#28 0x00007FF7309F2A71 in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:25:02
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF830A40543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF730A404A8 (64-bit), Flags: Cmdre0, Thread: 0x6598 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7309F2AD2 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7309F2B1A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF730A04959 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF730A048F4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7309FE8E1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7309FDCDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7309FD646 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#22 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FF730A0BC6E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#27 0x00007FF7309F2A44 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#28 0x00007FF7309F2A71 in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:25:02
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF89AA00543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF79AA004A8 (64-bit), Flags: Cmdre0, Thread: 0x5DB0 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF79A9B2AD2 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF79A9B2B1A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF79A9C4959 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF79A9C48F4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF79A9BE8E1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF79A9BDCDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF79A9BD646 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#22 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FF79A9CBC6E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#27 0x00007FF79A9B2A44 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#28 0x00007FF79A9B2A71 in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:25:27
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF89AA00543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF79AA004A8 (64-bit), Flags: Cmdre0, Thread: 0x5DB0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF79A9B2AD2 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF79A9B2B1A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF79A9C4959 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF79A9C48F4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF79A9BE8E1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF79A9BDCDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF79A9BD646 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#22 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#23 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FF79A9CBC6E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#27 0x00007FF79A9B2A44 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#28 0x00007FF79A9B2A71 in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:25:27
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF8EFB90543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7EFB904A8 (64-bit), Flags: Cmdre0, Thread: 0x1C4C (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7EFB42AD2 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7EFB42B1A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7EFB54959 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7EFB548F4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7EFB4E8E1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7EFB4DCDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7EFB4D646 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#23 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FF7EFB5BC6E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#28 0x00007FF7EFB42A44 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#29 0x00007FF7EFB42A71 in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:25:44
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF8EFB90543 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF7EFB904A8 (64-bit), Flags: Cmdre0, Thread: 0x1C4C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF7EFB42AD2 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF7EFB42B1A in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF7EFB54959 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_vsnprintf_s()
+# 7 0x00007FF7EFB548F4 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_tx_snprintf_s()
+# 8 0x00007FF7EFB4E8E1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txDumpExceptionSEH()
+# 9 0x00007FF7EFB4DCDE in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txOnExceptionSEH()
+#10 0x00007FF7EFB4D646 in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD568C979 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#23 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FF7EFB5BC6E in D:\Ucheba\C_Progs\Akinator\akinator.exe: TX::txSpeak()
+#28 0x00007FF7EFB42A44 in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#29 0x00007FF7EFB42A71 in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 02:00:59, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 02:25:44
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF7ACC60A03 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF6ACC60970 (64-bit), Flags: Cmdre0, Thread: 0xBE8 (Main), GetLastError(): 317 (The system cannot find message text for message number 0x%1 in the message file for %2), errno: 17 (File exists). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF6ACC135CE in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF6ACC13616 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF6ACC2569C in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_tx_vsnprintf_s()
+# 7 0x00007FF6ACC25637 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_tx_snprintf_s()
+# 8 0x00007FF6ACC1F624 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_txDumpExceptionSEH()
+# 9 0x00007FF6ACC1EA21 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_txOnExceptionSEH()
+#10 0x00007FF6ACC1E389 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697B43 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#23 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FF6ACC2CE88 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::txSpeak()
+#28 0x00007FF6ACC30B8E in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#29 0x00007FF6ACC12AA1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: akin_print_menu()
+#30 0x00007FF6ACC120F6 in D:\Ucheba\C_Progs\Akinator\akinator.exe: akin_main()
+#31 0x00007FF6ACC12293 in D:\Ucheba\C_Progs\Akinator\akinator.exe: akin_play()
+#32 0x00007FF6ACC12B4C in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 03:52:09, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 04:04:24
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Ucheba\C_Progs\Akinator\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#2: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FFCE2F64ADA в функции free_base(). Попытка записать данные по адресу 0x00007FF7ACC60A03 в модуле C:\Windows\System32\ucrtbase.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x00007FF6ACC60970 (64-bit), Flags: Cmdre0, Thread: 0xBE8 (Main), errno: 17 (File exists). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFCE2F64ADA in C:\Windows\System32\ucrtbase.dll: free_base()
+# 1 0x00007FFCE2F62D20 in C:\Windows\System32\ucrtbase.dll: wsetlocale()
+# 2 0x00007FFCE2F5F90D in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 3 0x00007FFCE2F5F820 in C:\Windows\System32\ucrtbase.dll: _stdio_common_vsnprintf_s()
+# 4 0x00007FF6ACC135CE in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s_l()
+# 5 0x00007FF6ACC13616 in D:\Ucheba\C_Progs\Akinator\akinator.exe: _vsnprintf_s()
+# 6 0x00007FF6ACC2569C in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_tx_vsnprintf_s()
+# 7 0x00007FF6ACC25637 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_tx_snprintf_s()
+# 8 0x00007FF6ACC1F624 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_txDumpExceptionSEH()
+# 9 0x00007FF6ACC1EA21 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_txOnExceptionSEH()
+#10 0x00007FF6ACC1E389 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::_txVectoredExceptionHandler()
+#11 0x00007FFCE5987A8A in C:\Windows\SYSTEM32\ntdll.dll: RtlGetLengthWithoutLastFullDosOrNtPathElement()
+#12 0x00007FFCE592E242 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+#13 0x00007FFCE5964475 in C:\Windows\SYSTEM32\ntdll.dll: RtlRaiseException()
+#14 0x00007FFCE31F565C in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+#15 0x00007FFCD56FDEA3 in C:\Windows\System32\msxml6.dll: DllSetProperty()
+#16 0x00007FFCD5697B43 in C:\Windows\System32\msxml6.dll: DllCanUnloadNow()
+#23 0x00007FFCB272F210 in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#24 0x00007FFCB272AB9C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#25 0x00007FFCB2723D8C in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#26 0x00007FFCB272586B in C:\Windows\System32\Speech\Common\sapi.dll: DllUnregisterServer()
+#27 0x00007FF6ACC2CE88 in D:\Ucheba\C_Progs\Akinator\akinator.exe: (anonymous namespace)::TX::txSpeak()
+#28 0x00007FF6ACC30B8E in D:\Ucheba\C_Progs\Akinator\akinator.exe: speak()
+#29 0x00007FF6ACC12AA1 in D:\Ucheba\C_Progs\Akinator\akinator.exe: akin_print_menu()
+#30 0x00007FF6ACC120F6 in D:\Ucheba\C_Progs\Akinator\akinator.exe: akin_main()
+#31 0x00007FF6ACC12293 in D:\Ucheba\C_Progs\Akinator\akinator.exe: akin_play()
+#32 0x00007FF6ACC12B4C in D:\Ucheba\C_Progs\Akinator\akinator.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	Libs/TXLib.h
+Compiled:	Nov 25 2023 03:52:09, GNU g++ 13.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Nov 25 2023 04:04:24
+
+Run file:	D:\Ucheba\C_Progs\Akinator\akinator.exe
+Directory:	D:\Ucheba\C_Progs\Akinator
+
+--------------------------------------------------
