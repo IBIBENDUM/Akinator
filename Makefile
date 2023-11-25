@@ -40,4 +40,4 @@ clean:
 	del /Q $(LIBS_DIR)\*.o
 
 run:
-	.\$(EXECUTABLE) -i base.txt -o base.txt
+	.\$(EXECUTABLE) -i Examples/smeshariki.txt

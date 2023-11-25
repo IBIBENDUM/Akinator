@@ -12,6 +12,8 @@
 #include "akinator.h"
 #include "akinator_ui.h"
 
+#define ASYNC akin->speak_async
+
 static bool check_is_object_node(Tree_node node)
 {
     if (!node)
@@ -61,7 +63,7 @@ static akin_error akin_add_node(Akinator* akin, Tree_node node)
     if (!akin->tree)
         return AKIN_TREE_NULL_PTR;
 
-    akin_print_add_node_start_msg();
+    akin_print_add_node_start_msg(ASYNC);
 
     akin_error err = AKIN_NO_ERR;
 
@@ -74,7 +76,7 @@ static akin_error akin_add_node(Akinator* akin, Tree_node node)
     if (tree_err != TREE_NO_ERR)
         return AKIN_TREE_ERR;
 
-    akin_print_obj_question(left_string, node_value);
+    akin_print_obj_question(ASYNC, left_string, node_value);
 
     wchar_t* question_string = NULL;
     err = allocate_word(akin, &question_string);
@@ -99,7 +101,7 @@ static akin_error akin_guess_recurse(Akinator* akin, Tree_node node)
     if (!node)
         return AKIN_NULL_NODE_PTR;
 
-    akin_print_guess_question(node);
+    akin_print_guess_question(ASYNC, node);
 
     bool answer = akin_get_answer();
 
@@ -107,7 +109,7 @@ static akin_error akin_guess_recurse(Akinator* akin, Tree_node node)
     {
         if (answer)
         {
-            akin_print_guess_correct();
+            akin_print_guess_correct(ASYNC);
             return AKIN_NO_ERR;
         }
         else
@@ -125,7 +127,7 @@ static akin_error akin_guess_recurse(Akinator* akin, Tree_node node)
 
 static akin_error akin_guess(Akinator* akin)
 {
-    akin_print_guess_start_msg();
+    akin_print_guess_start_msg(ASYNC);
     return akin_guess_recurse(akin, tree_get_root(akin->tree));
 }
 //~~~~~~~~~~~~~~~~~~~~~~guess~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -174,7 +176,7 @@ static akin_error akin_find_object(Tree_node node, wchar_t* ref, Tree_node* dest
     return err;
 }
 
-static akin_error akin_describe_recurse(const Tree_node node, elem_t* data)
+static akin_error akin_describe_recurse(const Akinator* akin, const Tree_node node, elem_t* data)
 {
     if (!data)
         return AKIN_NULL_PTR;
@@ -183,16 +185,16 @@ static akin_error akin_describe_recurse(const Tree_node node, elem_t* data)
         return AKIN_NO_ERR;
 
     akin_error err = AKIN_NO_ERR;
-    akin_print_describe_msg(node, *data);
+    akin_print_describe_msg(ASYNC, node, *data);
     if (*data == AKIN_TRUE_VALUE)
     {
         Tree_node left_child = tree_get_child_node(node, LEFT);
-        err = akin_describe_recurse(left_child, data++);
+        err = akin_describe_recurse(akin, left_child, data + 1);
     }
     else if(*data == AKIN_FALSE_VALUE)
     {
         Tree_node right_child = tree_get_child_node(node, RIGHT);
-        err = akin_describe_recurse(right_child, data++);
+        err = akin_describe_recurse(akin, right_child, data + 1);
     }
     return err;
 }
@@ -220,7 +222,7 @@ static akin_error akin_describe_object(Akinator* akin)
     if (!akin)
         return AKIN_NULL_PTR;
 
-    akin_print_describe_start_msg();
+    akin_print_describe_start_msg(ASYNC);
 
     stack stk = {};
     init_stack(stk);
@@ -231,13 +233,13 @@ static akin_error akin_describe_object(Akinator* akin)
     Tree_node root = tree_get_root(akin->tree);
     if (err == AKIN_NODE_FOUND)
     {
-        akin_print_describe_success_msg(root, node);
-        akin_describe_recurse(root, stk.data);
+        akin_print_describe_success_msg(ASYNC, root, node);
+        akin_describe_recurse(akin, root, stk.data);
         err = AKIN_NO_ERR;
     }
     else
     {
-        akin_print_describe_fail_msg();
+        akin_print_describe_fail_msg(ASYNC);
     }
     destruct_stack(&stk);
     return err;
@@ -245,30 +247,30 @@ static akin_error akin_describe_object(Akinator* akin)
 //~~~~~~~~~~~~~~~~~~~~~definition~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~~~~~~~~~~~~~~~COMPARE~~~~~~~~~~~~~~~~~~~~~~~~~~~
-static Tree_node akin_compare_nodes_recurse(const Tree_node node, elem_t* data, const size_t ref_depth, size_t cur_depth)
+static Tree_node akin_compare_nodes_recurse(const Akinator* akin, const Tree_node node, elem_t* data, const size_t ref_depth, size_t cur_depth)
 {
     if (cur_depth == ref_depth)
         return node;
 
-    akin_print_compare_match_msg(node, *data);
+    akin_print_compare_match_msg(ASYNC, node, *data);
 
     Tree_node diff_node = NULL;
     if (*data == AKIN_TRUE_VALUE)
     {
         Tree_node left_child = tree_get_child_node(node, LEFT);
-        diff_node = akin_compare_nodes_recurse(left_child, data++, ref_depth, cur_depth + 1);
+        diff_node = akin_compare_nodes_recurse(akin, left_child, data + 1, ref_depth, cur_depth + 1);
     }
     else if(*data == AKIN_FALSE_VALUE)
     {
         Tree_node right_child = tree_get_child_node(node, RIGHT);
-        diff_node = akin_compare_nodes_recurse(right_child, data++, ref_depth, cur_depth + 1);
+        diff_node = akin_compare_nodes_recurse(akin, right_child, data + 1, ref_depth, cur_depth + 1);
     }
     return diff_node;
 }
 
-static Tree_node akin_compare_nodes(const Tree tree, elem_t* data, const size_t depth)
+static Tree_node akin_compare_nodes(const Akinator* akin, elem_t* data, const size_t depth)
 {
-    return akin_compare_nodes_recurse(tree_get_root(tree), data, depth, 0);
+    return akin_compare_nodes_recurse(akin, tree_get_root(akin->tree), data, depth, 0);
 }
 
 static akin_error akin_get_dont_matched_properties(const size_t capacity, elem_t* data_1, elem_t* data_2, size_t* pos)
@@ -291,13 +293,13 @@ static akin_error akin_compare_objects(Akinator* akin)
     if (!akin)
         return AKIN_NULL_PTR;
 
-    akin_print_compare_ask_first_object();
+    akin_print_compare_ask_first_object(ASYNC);
     stack obj_1_stk = {};
     init_stack(obj_1_stk);
     Tree_node obj_1_node = NULL;
     akin_error err_1 = akin_get_object(akin, &obj_1_stk, &obj_1_node);
 
-    akin_print_compare_ask_second_object();
+    akin_print_compare_ask_second_object(ASYNC);
     stack obj_2_stk = {};
     init_stack(obj_2_stk);
     Tree_node obj_2_node = NULL;
@@ -310,12 +312,12 @@ static akin_error akin_compare_objects(Akinator* akin)
         size_t position = 0;
         size_t capacity = (obj_1_stk.size > obj_2_stk.size)? obj_2_stk.size : obj_1_stk.size;
         akin_get_dont_matched_properties(capacity, obj_1_stk.data, obj_2_stk.data, &position);
-        Tree_node character_node = akin_compare_nodes(akin->tree, obj_1_stk.data, position);
-        akin_print_compare_dont_match_msg(character_node, obj_1_node, obj_2_node);
+        Tree_node character_node = akin_compare_nodes(akin, obj_1_stk.data, position);
+        akin_print_compare_dont_match_msg(ASYNC, character_node, obj_1_node, obj_2_node);
     }
     else
     {
-        akin_print_describe_fail_msg();
+        akin_print_describe_fail_msg(ASYNC);
     }
     destruct_stack(&obj_1_stk);
     destruct_stack(&obj_2_stk);
@@ -328,10 +330,10 @@ static akin_error akin_compare_objects(Akinator* akin)
 //~~~~~~~~~~~~~~~~~~~~~~compare~~~~~~~~~~~~~~~~~~~~~~~~~~~
 static akin_error akin_save(Akinator* akin)
 {
-    akin_print_ask_for_save();
+    akin_print_ask_for_save(ASYNC);
     if (akin_get_answer())
     {
-        if (!tree_save(akin->save_file_name, akin->tree))
+        if (!tree_save(akin->load_file_name, akin->tree))
             return AKIN_TREE_SAVE_ERR;
     }
     return AKIN_EXIT;
@@ -352,27 +354,26 @@ static akin_error akin_main(Akinator* akin)
         {
             err = akin_guess(akin);
             if (err == AKIN_MEMORY_FULL)
-                akin_print_memory_full_err();
+                akin_print_memory_full_err(ASYNC);
             break;
         }
-        case L'д': akin_dump_tree(akin);              break;
+        case L'д': akin_dump_tree(akin);                   break;
         case L'о': err = akin_describe_object(akin);
         {
             if (err == AKIN_NODE_FOUND)
                 err = AKIN_NO_ERR;
             break;
         }
-        case L'с': err = akin_compare_objects(akin);  break;
-        case L'ы': err = akin_save(akin);             break;
-          default: akin_print_main_wrong_input_msg(); break;
+        case L'с': err = akin_compare_objects(akin);       break;
+        case L'ы': err = akin_save(akin);                  break;
+          default: akin_print_main_wrong_input_msg(ASYNC); break;
     }
     return err;
 }
 
-akin_error akin_play(const char* input_name, const char* output_name)
+akin_error akin_play(const char* input_name, const bool speak_async)
 {
     #ifdef _WIN32
-    // int  in_prev_mode = setmode(fileno(stdin) , _O_U8TEXT);
     int out_prev_mode = setmode(fileno(stdout), _O_U8TEXT);
     #endif
 
@@ -383,8 +384,8 @@ akin_error akin_play(const char* input_name, const char* output_name)
 
     Akinator akin = {
                         .tree = tree,
-                        .load_file_name = input_name,
-                        .save_file_name = output_name,
+                        .load_file_name  = input_name,
+                        .speak_async     = speak_async,
                         .buffer_capacity = BUFFER_SIZE
                     };
 
@@ -396,7 +397,6 @@ akin_error akin_play(const char* input_name, const char* output_name)
     tree_destruct(tree);
 
     #ifdef _WIN32
-    // setmode(fileno(stdin) , in_prev_mode);
     setmode(fileno(stdout), out_prev_mode);
     #endif
 

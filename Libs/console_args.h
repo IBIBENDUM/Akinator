@@ -6,8 +6,8 @@
 
 struct Args_values
 {
-    const char* input_file_name;
-    const char* output_file_name;
+    const char*    input_file_name;
+    bool           speak_async;
     enum log_level log_level;
 };
 

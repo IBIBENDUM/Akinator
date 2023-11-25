@@ -10,7 +10,7 @@
 
 #include "speak.h"
 
-void speak(const wchar_t* format, ...)
+void speak(const bool async, const wchar_t* format, ...)
 {
     const size_t BUFFER_SIZE = 64;
     wchar_t buffer[BUFFER_SIZE] = L"";
@@ -22,10 +22,21 @@ void speak(const wchar_t* format, ...)
 
     va_end(args);
 
-    txSpeak("<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='RU'>"
+    if (async)
+    {
+        txSpeak("\a<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='RU'>"
                 "<prosody rate='fast' pitch='+1600Hz'>"
                     "%ls"
                 "</prosody>"
             "</speak>", buffer);
+    }
+    else
+    {
+        txSpeak("<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='RU'>"
+                    "<prosody rate='fast' pitch='+1600Hz'>"
+                        "%ls"
+                    "</prosody>"
+                "</speak>", buffer);
+    }
 }
 #endif

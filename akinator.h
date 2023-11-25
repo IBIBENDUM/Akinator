@@ -32,14 +32,14 @@ const int AKIN_FALSE_VALUE = 0;
 
 struct Akinator
 {
-    Tree tree;
+    Tree        tree;
     const char* load_file_name;
-    const char* save_file_name;
-    wchar_t buffer[BUFFER_SIZE];
-    size_t buffer_size;
-    size_t buffer_capacity;
+    bool        speak_async;
+    wchar_t     buffer[BUFFER_SIZE];
+    size_t      buffer_size;
+    size_t      buffer_capacity;
 };
 
-akin_error akin_play(const char* input_name, const char* output_name);
+akin_error akin_play(const char* input_name, bool speak_async);
 
 #endif

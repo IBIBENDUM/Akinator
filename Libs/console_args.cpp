@@ -29,12 +29,6 @@ bool handle_cmd_args(const int argc, char* const* argv, const char* format, Args
                 break;
             }
 
-            case 'o':
-            {
-                values->output_file_name = optarg;
-                break;
-            }
-
             case 'm':
             {
                 bool is_level_found = false;
@@ -53,6 +47,12 @@ bool handle_cmd_args(const int argc, char* const* argv, const char* format, Args
 
                 LOG_ERROR("There is no %s log level", optarg);
                 return false;
+            }
+
+            case 'a':
+            {
+                values->speak_async = true;
+                break;
             }
 
             case 'h':
@@ -74,12 +74,6 @@ bool handle_cmd_args(const int argc, char* const* argv, const char* format, Args
     if (!values->input_file_name)
     {
         LOG_ERROR("Option -i is mandatory!\n");
-        return false;
-    }
-
-    if (!values->output_file_name)
-    {
-        LOG_ERROR("Option -o is mandatory!\n");
         return false;
     }
 

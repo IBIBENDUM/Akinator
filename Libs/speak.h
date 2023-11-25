@@ -6,7 +6,7 @@
 #include <wchar.h>
 #include <stdarg.h>
 
-void speak(const wchar_t* format, ...);
+void speak(bool async, const wchar_t* format, ...);
 
 #endif // SPEAK_H_
 

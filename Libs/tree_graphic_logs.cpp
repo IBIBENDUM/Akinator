@@ -221,7 +221,7 @@ static void clear_log_files()
     char command_string[GRAPH_MAX_PATH_LEN] = "";
 
     #ifdef _WIN32
-        sprintf(command_string, "del /s /q %s", LOG_FOLDER_NAME);
+        sprintf(command_string, "del /s /q %s >nul 2>&1", LOG_FOLDER_NAME);
         system(command_string);
     #else
         sprintf(command_string, "rm -r %s", LOG_FOLDER_NAME);
