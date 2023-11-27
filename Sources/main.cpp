@@ -6,6 +6,7 @@
 #include "../Libs/Logs/logs.h"
 #include "../Libs/Console_args/console_args.h"
 #include "../Includes/akinator.h"
+#include "../Includes/akinator_ui.h"
 
 int main(const int argc, char* const* argv)
 {
@@ -20,6 +21,10 @@ int main(const int argc, char* const* argv)
     set_log_level(values.cur_log_level);
 
     int err = akin_play(values.input_file_name, values.speak_async);
+    if (err != AKIN_EXIT)
+    {
+        akin_print_exit_error_msg(values.speak_async);
+    }
     LOG_DEBUG("err = %d", err);
 
     return 0;

@@ -9,6 +9,7 @@ enum akin_error
     AKIN_NULL_PTR,
     AKIN_EXIT,
     AKIN_NODE_FOUND,
+    AKIN_NODE_NOT_FOUND,
     AKIN_NO_MATCH,
     AKIN_NULL_FILE_NAME,
     AKIN_NULL_NODE_PTR,
@@ -27,8 +28,8 @@ const size_t MIN_BUFFER_CAPACITY = 32;
 const size_t MAX_STRING_SIZE = 30;
 const size_t BUFFER_SIZE = 150;
 
-const int AKIN_TRUE_VALUE = 1;
-const int AKIN_FALSE_VALUE = 0;
+const int AKIN_STACK_TRUE_VALUE = 1;
+const int AKIN_STACK_FALSE_VALUE = 0;
 
 struct Akinator
 {

@@ -48,6 +48,11 @@ bool akin_get_answer()
 #endif
 
 //~~~~~~~~~~~~~~~~~~~~~PRINT_FUNCTIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void akin_print_exit_error_msg(const bool async)
+{
+    PRINT_AND_SPEAK(COLOR_LIGHT_CYAN, "Произошла ошибка во время выполнения программы\n");
+}
+
 void akin_print_compare_ask_first_object(const bool async)
 {
     PRINT_AND_SPEAK(COLOR_LIGHT_CYAN, "Введи первый объект для сравнения: \n");
@@ -64,7 +69,7 @@ void akin_print_compare_match_msg(const bool async, const Tree_node node, const 
     tree_get_node_value(node, &character_node_value);
 
     PRINT_AND_SPEAK(COLOR_STD, "Они оба ");
-    if (property_value == AKIN_FALSE_VALUE)
+    if (property_value == AKIN_STACK_FALSE_VALUE)
         PRINT_AND_SPEAK(COLOR_STD, "не ");
 
     PRINT_AND_SPEAK(COLOR_STD, "%ls\n", character_node_value);
@@ -106,7 +111,7 @@ void akin_print_describe_msg(const bool async, const Tree_node node, const int p
 
     wchar_t* value = NULL;
     tree_get_node_value(node, &value);
-    if (property_value == AKIN_FALSE_VALUE)
+    if (property_value == AKIN_STACK_FALSE_VALUE)
         PRINT_AND_SPEAK(COLOR_STD, "не ");
 
     PRINT_AND_SPEAK(COLOR_STD, "%ls;\n", value);

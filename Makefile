@@ -29,4 +29,4 @@ clean:
 	del $(PROGRAM_OBJS_PATH)
 
 run:
-	.\$(EXECUTABLE) -i Examples/smeshariki.akin
+	.\$(EXECUTABLE) -i Examples/smeshariki.akin -a

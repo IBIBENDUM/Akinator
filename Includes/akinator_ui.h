@@ -17,6 +17,8 @@ void akin_print_compare_ask_second_object(bool async);
 
 void akin_print_compare_ask_first_object(bool async);
 
+void akin_print_exit_error_msg(bool async);
+
 void akin_print_menu();
 
 void akin_print_add_node_start_msg(bool async);
