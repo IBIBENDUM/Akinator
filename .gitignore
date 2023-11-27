@@ -1,5 +1,4 @@
 *.o
-*.exe
 *.exe*
 log
 *.txt
