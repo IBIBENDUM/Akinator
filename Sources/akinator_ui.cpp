@@ -11,7 +11,7 @@
 #include "../Includes/akinator.h"
 #include "../Includes/akinator_ui.h"
 
-wchar_t akin_get_input()
+wchar_t akin_get_char()
 {
     wchar_t input = getwchar();
     while (iswspace(input))
@@ -25,9 +25,21 @@ wchar_t akin_get_input()
     return input;
 }
 
+size_t akin_get_obj_name(wchar_t* buffer)
+{
+    if (!fgetws(buffer, MAX_STRING_SIZE, stdin))
+        return 0;
+
+    // Remove last '\n'
+    size_t string_len = wcslen(buffer);
+    buffer[string_len - 1] = L'\0';
+
+    return 2;
+}
+
 bool akin_get_answer()
 {
-    return (akin_get_input() == L'д');
+    return (akin_get_char() == L'д');
 }
 
 #ifdef _WIN32
@@ -103,6 +115,11 @@ void akin_print_describe_success_msg(const bool async, const Tree_node root, con
     wchar_t* value = NULL;
     tree_get_node_value(node, &value);
     PRINT_AND_SPEAK(COLOR_STD, "%ls нашелся!\nОн ", value);
+}
+
+void akin_print_tree_load_err(const bool async)
+{
+    PRINT_AND_SPEAK(COLOR_LIGHT_RED, "Дерево задано некорректно!\n");
 }
 
 void akin_print_describe_msg(const bool async, const Tree_node node, const int property_value)

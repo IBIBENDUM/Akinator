@@ -1,7 +1,9 @@
 #ifndef AKINATOR_UI_H_
 #define AKINATOR_UI_H_
 
-wchar_t akin_get_input();
+wchar_t akin_get_char();
+
+size_t akin_get_obj_name(wchar_t* buffer);
 
 bool akin_get_answer();
 
@@ -14,6 +16,8 @@ void akin_print_compare_match_msg(bool async, const Tree_node node, int property
 void akin_print_ask_for_save(bool async);
 
 void akin_print_compare_ask_second_object(bool async);
+
+void akin_print_tree_load_err(bool async);
 
 void akin_print_compare_ask_first_object(bool async);
 
