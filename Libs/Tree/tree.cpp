@@ -7,6 +7,9 @@
 #include "../Logs/logs.h"
 #include "../Utils/utils.h"
 
+
+// TODO: Why not store node in an array?
+
 struct Tree_node_
 {
     tree_elem_t value;
