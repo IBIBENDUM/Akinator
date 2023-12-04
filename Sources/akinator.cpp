@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <fcntl.h>
 
+// TODO: debug/release mode should be switchable from outside of the project
 #define STK_DEBUG
 #include "../Libs/Stack/stack.h"
 #include "../Libs/Stack/stack_logs.h"
@@ -15,6 +16,10 @@
 #define ASYNC akin->speak_async
 #define TREE  akin->tree
 
+// TODO: naming is a bit confusing, maybe try clarifying what "object" is
+
+// TODO: also, I think it would be clearer if you wrote this function in
+//       terms of other, called "is_leaf", you get it.
 static bool check_is_object_node(const Tree_node node)
 {
     if (!node)
@@ -46,6 +51,11 @@ static akin_error allocate_word(Akinator* akin, wchar_t** string)
     return AKIN_NO_ERR;
 }
 
+// TODO: seems generalizable, as always :)
+//       Why not create bakhtiyar-error-handling.h?
+
+//       Then such "propagator" could be written generically
+//       as long as NO_ERROR corresponds to value 0
 #define AKIN_RETURN_IF_ERR(ERROR) \
     do {                          \
         if (ERROR != AKIN_NO_ERR) \
@@ -65,6 +75,9 @@ static akin_error akin_add_node(Akinator* akin, Tree_node node)
     akin_error err = AKIN_NO_ERR;
 
     wchar_t* left_string = NULL;
+
+    // TODO: why not join these two?
+    //       PROPAGATE_ERROR(allocate_word(akin, &left_string));
     err = allocate_word(akin, &left_string);
     AKIN_RETURN_IF_ERR(err);
 
@@ -90,6 +103,18 @@ static akin_error akin_add_node(Akinator* akin, Tree_node node)
 #undef AKIN_RETURN_IF_ERR
 
 //~~~~~~~~~~~~~~~~~~~~~~~GUESS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// TODO: just a thing to think about. What if tree gets really huge?
+
+//       Let's say that for some reason it happens to be straight line? 
+//       Then, in theory, it could overflow stack (and I know, it's 
+//       unlikely since humans are the ones guessing and they won't
+//       do it for so long), or could it?
+
+//       How could this be rewritten without recursion? Also, try
+//       to artificially overflow it. Can it be done? If not, why?
+
+//       I think it a thing you should understand writing function
+//       like this one :) You can DM me answer!
 static akin_error akin_guess_recurse(Akinator* akin, const Tree_node node)
 {
     if (!akin)
@@ -174,6 +199,8 @@ static akin_error akin_get_object_recurse(const Tree_node node, wchar_t* ref, Tr
     return err;
 }
 
+// TODO: seems like a lot of functions use DFS to get what they want,
+//       can DFS be extracted from them and generalized?
 static akin_error akin_describe_recurse(const Akinator* akin, const Tree_node node, elem_t* data)
 {
     if (!data)
@@ -268,6 +295,8 @@ static Tree_node akin_compare_nodes_recurse(const Akinator* akin, const Tree_nod
     return diff_node;
 }
 
+// TODO: if it's comparing two nodes, then where are them (nodes I mean)?
+//       I think it's more like finds a node in a specific spot described by data.
 static Tree_node akin_compare_nodes(const Akinator* akin, elem_t* data, const size_t depth)
 {
     assert(akin);
@@ -276,6 +305,7 @@ static Tree_node akin_compare_nodes(const Akinator* akin, elem_t* data, const si
     return akin_compare_nodes_recurse(akin, tree_get_root(TREE), data, depth, 0);
 }
 
+// TODO: grammar: get unmatched
 static akin_error akin_get_dont_matched_properties(const size_t capacity, elem_t* data_1, elem_t* data_2, size_t* pos)
 {
     assert(pos);
@@ -302,7 +332,7 @@ static akin_error akin_compare_objects(const Akinator* akin)
 
     // Initialize first stack with object path
     stack obj_1_stk = {};
-    init_stack(obj_1_stk);
+    init_stack(obj_1_stk); // TODO: this just seems a bit too expensive. Can you, maybe, reuse stacks?
     Tree_node obj_1_node = NULL;
     akin_error err = AKIN_NO_ERR;
     err = akin_get_object(akin, &obj_1_stk, &obj_1_node);
@@ -324,6 +354,8 @@ static akin_error akin_compare_objects(const Akinator* akin)
     {
         err = AKIN_NO_ERR;
         size_t position = 0;
+        // TODO: can't you make an array thingy that stores it's size? So that unmatched_properties
+        //       function can decide size itself:
         size_t capacity = (obj_1_stk.size > obj_2_stk.size)? obj_2_stk.size : obj_1_stk.size;
         akin_get_dont_matched_properties(capacity, obj_1_stk.data, obj_2_stk.data, &position); // Get the node where the differences start
         Tree_node character_node = akin_compare_nodes(akin, obj_1_stk.data, position);

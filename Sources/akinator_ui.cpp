@@ -13,6 +13,7 @@
 
 wchar_t akin_get_char()
 {
+    // TODO: do...while?
     wchar_t input = getwchar();
     while (iswspace(input))
         input = getwchar();
@@ -34,9 +35,10 @@ size_t akin_get_obj_name(wchar_t* buffer)
     size_t string_len = wcslen(buffer);
     buffer[string_len - 1] = L'\0';
 
-    return 2;
+    return 2; // TODO: what is 2?
 }
 
+// TODO: naming, what kind of answer it gets exactly?
 bool akin_get_answer()
 {
     return (akin_get_char() == L'д');
@@ -44,6 +46,7 @@ bool akin_get_answer()
 
 #ifdef _WIN32
 
+// TODO: this could be a function
 #define PRINT_AND_SPEAK(COLOR, FORMAT, ...)                    \
     do {                                                       \
         wprintf(L"" PAINT_TEXT(COLOR, FORMAT), ##__VA_ARGS__); \
@@ -52,6 +55,7 @@ bool akin_get_answer()
 
 #else
 
+// TODO: and so can this
 #define PRINT_AND_SPEAK(COLOR, FORMAT, ...)                    \
     do {                                                       \
         wprintf(L"" PAINT_TEXT(COLOR, FORMAT), ##__VA_ARGS__); \
@@ -60,6 +64,16 @@ bool akin_get_answer()
 #endif
 
 //~~~~~~~~~~~~~~~~~~~~~PRINT_FUNCTIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// TODO: I don't understand what's the reason for these similar
+//       bunch of functions. Did you want to abstract out text in
+//       messages?
+
+//       This could be done with enum and array of strings.
+
+//       Or, it could even be split in files, which, I understand,
+//       is a more complex way of doing it.
+
 void akin_print_exit_error_msg(const bool async)
 {
     PRINT_AND_SPEAK(COLOR_LIGHT_CYAN, "Произошла ошибка во время выполнения программы\n");
@@ -88,6 +102,8 @@ void akin_print_compare_match_msg(const bool async, const Tree_node node, const 
 
 }
 
+// TODO: hmm, maybe a little template language? %0 differs from %1 and generic api
+//       to access them? Seems like a pretty easy to use and write thing :)
 void akin_print_compare_dont_match_msg(const bool async, const Tree_node character_node, const Tree_node obj_1_node, const Tree_node obj_2_node)
 {
     assert(character_node);
@@ -100,7 +116,7 @@ void akin_print_compare_dont_match_msg(const bool async, const Tree_node charact
     wchar_t* obj_1_node_value = NULL;
     tree_get_node_value(obj_1_node, &obj_1_node_value);
 
-    wchar_t* obj_2_node_value = NULL;
+    wchar_t* obj_2_node_value = NULL; // TODO: yeah, and it would get rid of all this repetitions
     tree_get_node_value(obj_2_node, &obj_2_node_value);
 
     PRINT_AND_SPEAK(COLOR_STD, "%ls отличается от %ls тем, что один из них %ls\n",
